@@ -1,0 +1,83 @@
+<div class="member">
+    <div class="head-box">
+        <img class="head-img" :src="memberInfo.headimgurl ? HSrc(memberInfo.headimgurl):'/static/img/member/mum_tx.png'" alt="">
+        <label style="position: absolute;top: 20px;left: 7.5%;width: 80px;height: 80px;">
+                <input name="memberInfo.headimgurl" @change="fileChange" type="file" accept="image/*" style="display:none;">
+            </label>
+        <div class="personalinfo">
+            <div @click="toPage('/member/membership')" class="name" style="-webkit-box-orient: vertical;">{{memberInfo.nickname}}</div>
+            <div @click="toPage('/member/medal')" class="grade">查看勋章</div>
+        </div>
+        <img @click="toPage('/member/membership')" class="head-right" src="/static/img/member/right.png" alt="">
+    </div>
+    <div class="num-box">
+        <div style="width: 50%;height: 100%;" @click="toPage('./collectlist')">
+            <div class="collect">{{CollectNum}}</div>
+            <div class="collect-name">收藏</div>
+        </div>
+        <div style="width: 50%;height: 100%;" @click="toPage('./integral')">
+            <div class="collect">{{memberInfo.integral}}</div>
+            <div class="collect-name">积分</div>
+        </div>
+    </div>
+    <div class="list-button" @click="toPage('./sign')">
+        <img class="label-img" src="/static/img/member/qd.png" alt="">
+        <div class="lable-name" style="width: 30px;">签到</div>
+        <div v-show="status" class="isSign" style="width: calc(95% - 98px);">今日未签到</div>
+        <div v-show="!status" class="isSign" style="color: #f48c3d;width: calc(95% - 98px);">今日已签到</div>
+        <img class="head-right" src="/static/img/member/right.png" alt="">
+    </div>
+    <div class="list-button" @click="toPage('./record')">
+        <img class="label-img" src="/static/img/member/zljl.png" alt="">
+        <div class="lable-name">公益记录</div>
+        <img class="head-right" src="/static/img/member/right.png" alt="">
+    </div>
+    <div class="list-button" @click="toPage('./travelRecords')">
+        <img class="label-img" src="/static/img/member/lyjl.png" alt="">
+        <div class="lable-name">旅游记录</div>
+        <img class="head-right" src="/static/img/member/right.png" alt="">
+    </div>
+    <!-- <div class="list-button" @click="showCode(true)">
+        <img class="label-img" src="/static/img/member/ewm.png" alt="">
+        <div class="lable-name">我的二维码</div>
+        <img class="head-right" src="/static/img/member/right.png" alt="">
+    </div> -->
+    <div class="list-button" @click="toPage('./friend')">
+        <img class="label-img" src="/static/img/member/yqhy.png" alt="">
+        <div class="lable-name">好友列表</div>
+        <img class="head-right" src="/static/img/member/right.png" alt="">
+    </div>
+    <div class="list-button" @click="toInvited">
+        <img class="label-img" src="/static/img/member/yqhy.png" alt="">
+        <div class="lable-name" style="width:72px;">邀请好友</div>
+        <div class="isSign" style="color: #f48c3d;width: calc(95% - 140px); font-size: 12px;text-align: right;">成功邀请可获得30积分</div>
+        <img class="head-right" src="/static/img/member/right.png" alt="">
+    </div>
+    <!-- <div class="list-button" @click="toPage('./opinion')">
+        <img class="label-img" src="/static/img/member/yjfk.png" alt="">
+        <div class="lable-name">意见反馈</div>
+        <img class="head-right" src="/static/img/member/right.png" alt="">
+    </div> -->
+    <div class="list-button" @click="toPage('./aboutUs')">
+        <img class="label-img" src="/static/img/member/gywm.png" alt="">
+        <div class="lable-name">一起玩吧</div>
+        <img class="head-right" src="/static/img/member/right.png" alt="">
+    </div>
+
+    <!--  二维码弹框    -->
+    <div v-if="willShow==true" class="selectChange">
+        <div class="bomb-box">
+            <div class="bomb-title">
+
+                <span></span>
+
+                <span>我的二维码</span>
+                <p @click="showCode(false)"></p>
+            </div>
+            <img :src="myCode" alt="">
+
+        </div>
+    </div>
+    <!-- 底部tab栏 -->
+    <fixBottom :check=4></fixBottom>
+</div>

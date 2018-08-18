@@ -1,0 +1,26 @@
+<div class="addAD">
+    <!-- <navHead title="添加收货地址" right="保存" @save="save" :show="!check"></navHead> -->
+    <div class="content">
+        <div class="flexd onepart">
+            <div class="lable-address">收货人</div><input type="text" v-model="consignee" placeholder="输入收货人姓名">
+        </div>
+        <div class="flexd onepart">
+            <div class="lable-address">手机号</div><input type="tel" v-model="reap_mobile" placeholder="输入收货人手机号">
+        </div>
+        <div class="flexd onepart">
+            <div style="font-size: 14px;line-height: 40px;color: #313131;">选择所在地区</div>
+            <p @click="coverChecked" class="flexd rightIcon flex" style="justify-content:flex-end;">
+                <span class="rightIcon">{{serve_address}}</span>
+                <icon-svg icon-class="you" style="width:17px;height:17px;vertical-align:middle;"></icon-svg>
+            </p>
+            <!-- <p class="right" v-else @click="coverChecked">{{serve_address}}</p> -->
+        </div>
+        <textarea placeholder="请填写详细地址..." v-model="detail_address"></textarea>
+    </div>
+    <div @click="save" class="add-button">保存</div>
+    <!-- <div class="cover" v-if="check">
+        <myLocation @child-say="getSonmsg"></myLocation>
+    </div> -->
+    <yd-cityselect v-model="check" :callback="result1" :items="district"></yd-cityselect>
+
+</div>

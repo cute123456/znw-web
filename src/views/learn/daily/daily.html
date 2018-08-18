@@ -1,0 +1,31 @@
+<div class="daily">
+    <div class="title-part">
+        <div class="count">
+            <div class="title">本周答题</div>
+            <div class="num">
+                <img class="sta-icon" src="/static/img/learn/daily/yes.png" />
+                <span class="num-count">1</span>
+                <img class="sta-icon" src="/static/img/learn/daily/no.png" />
+                <span class="num-count">0</span>
+            </div>
+        </div>
+
+        <div class="mounth" @click="toMonthly">
+            <img class="aword-icon" src="/static/img/learn/daily/aword.png" />
+            <div class="mounthly">每月冲关</div>
+            <img class="right-icon" src="/static/img/learn/daily/right.png" />
+        </div>
+    </div>
+
+    <img class="daily-banner" src="/static/img/learn/daily/dailyba.png" />
+    <div class="type">{{article&&article.subject?article.subject:''}}</div>
+
+    <div class="question">{{article.question}}</div>
+    <div :class="{changecolor:answer===1}" class="section" @click="changeAnswer(1)">{{article.answerA}}</div>
+    <div :class="{changecolor:answer===2}" class="section" @click="changeAnswer(2)">{{article.answerB}}</div>
+    <div :class="{changecolor:answer===3}" class="section" @click="changeAnswer(3)">{{article.answerC}}</div>
+    <div :class="{changecolor:answer===4}" class="section" @click="changeAnswer(4)">{{article.answerD}}</div>
+    <div class="save-btn" @click="save">提交答案</div>
+    <div class="status">已连续答题1天</div>
+    <div class="tip">每周一重置天数</div>
+</div>

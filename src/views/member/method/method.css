@@ -1,0 +1,175 @@
+.method {
+    background: #f6f7f9;
+    font-family: PingFang-SC-Regular;
+    /* overflow: hidden; */
+    padding-top: 7px;
+    padding-bottom: 20px;
+}
+
+.list-bg {
+    position: absolute;
+    top: 7px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.introduction_title {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.introduction_title p {
+    width: 4px;
+    background-color: #ef7c1b;
+    height: 18px;
+    border-radius: 30%;
+    margin-top: 4px;
+}
+
+.introduction_title span {
+    color: #1b1b1b;
+    font-size: 16px;
+    margin-left: 14px;
+    font-weight: normal;
+    margin-top: 2px;
+}
+
+.introduction {
+    padding-top: 10px;
+    padding-bottom: 22px;
+    background: #fff;
+    color: #1d1d1d;
+    font-size: 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .1);
+}
+
+
+/*    */
+
+.information h2 {
+    height: 33px;
+    font-size: 16px;
+    font-weight: normal;
+    color: #313131;
+    text-align: left;
+    margin: 16px 36px 16px 26px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* -------------增加---------------- */
+
+.integral-card {
+    height: 145px;
+    margin: 7px 15px;
+    background: -webkit-gradient(linear, 0 50%, 100% 50%, from(#f99128), to(#ffc234));
+    border-radius: 5px;
+    padding-top: 15px;
+}
+
+.total-integral {
+    width: 100%;
+    height: 15px;
+    font-size: 14px;
+    line-height: 15px;
+    color: #ffffff;
+    margin: 0 0 15px 18px;
+}
+
+.toExchange {
+    width: 100%;
+    height: 65px;
+    margin-top: 20px;
+    display: flex;
+}
+
+.num-integral {
+    width: 59%;
+    height: 65px;
+    font-size: 37px;
+    line-height: 65px;
+    color: #fff;
+    text-indent: 30px;
+    display: inline-block;
+}
+
+.depart {
+    width: 1px;
+    height: 65px;
+    border: dashed 1px #ffffff;
+    display: inline-block;
+}
+
+.change-icon {
+    width: 40%;
+    height: 65px;
+}
+
+.change-icon img {
+    width: 50px;
+    height: 43px;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+.change-icon .name {
+    width: 100%;
+    height: 15px;
+    font-size: 14px;
+    line-height: 15px;
+    color: #fff;
+    text-align: center;
+    margin-top: 6px;
+}
+
+.tips {
+    height: 15px;
+    font-size: 14px;
+    line-height: 15px;
+    color: #ef7c1b;
+    text-indent: 30px;
+    margin-bottom: 25px;
+}
+
+.way {
+    width: 100%;
+    height: 18px;
+    font-size: 14px;
+    line-height: 15px;
+    color: #767676;
+}
+
+.time {
+    width: 100%;
+    height: 15px;
+    font-size: 12px;
+    line-height: 15px;
+    color: #767676;
+}
+
+.exchange-value-de {
+    width: 20;
+    height: 33px;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 33px;
+    color: #1975ff;
+}
+
+.exchange-value-in {
+    width: 20;
+    height: 33px;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 33px;
+    color: #ef7c1b;
+}

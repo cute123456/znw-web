@@ -1,0 +1,54 @@
+<div class="sport">
+
+    <img @click="toBet" class="banner" src="/static/img/sport/sport-banner.png" />
+    <div class="article-name">
+        <div style="width: 70px;">运动资讯</div>
+        <span></span>
+    </div>
+    <yd-infinitescroll :callback="getArticleList" ref="infinitescrollDemo">
+        <yd-list theme="1" slot="list">
+            <div class="article-part" v-for="(item,index) in articlelist" :key="index" @click="toDetail(item.id)">
+                <img :src="item.img?(imgUrl+item.img):'/static/img/learn/art1.png'" />
+                <div class="article-content">
+                    <div class="article-title" style="-webkit-box-orient: vertical;">{{item.title}}</div>
+                    <div class="desc" style="-webkit-box-orient: vertical;">{{item.abstract}}</div>
+                    <div class="time">{{item.createdAt?timeDeformate(item.createdAt):''}}</div>
+                </div>
+            </div>
+        </yd-list>
+        <!-- 数据全部加载完毕显示 -->
+        <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">更多运动资讯敬请期待~</span>
+        <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+        <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+    </yd-infinitescroll>
+    <!-- <div class="artivlelist">
+        <div class="article-part" @click="toDetail(0)">
+            <img src="/static/img/sport/sp1.png" />
+            <div class="article-content">
+                <div class="article-title" style="-webkit-box-orient: vertical;">决赛! 德国1-0绝杀阿根廷</div>
+                <div class="desc" style="-webkit-box-orient: vertical;">阿根廷和德国在90分钟内0-0战平， 伊瓜因越位进球无效。
+                </div>
+                <div class="time">2018年01月04日</div>
+            </div>
+        </div>
+        <div class="article-part" @click="toDetail(0)">
+            <img src="/static/img/sport/sp2.png" />
+            <div class="article-content">
+                <div class="article-title" style="-webkit-box-orient: vertical;">德国青训=2新秀奖+冠军</div>
+                <div class="desc" style="-webkit-box-orient: vertical;">最好的球队将赢得一切，今时今日， 德国人证明了自己。
+                </div>
+                <div class="time">2018年01月04日</div>
+            </div>
+        </div>
+        <div class="article-part" @click="toDetail(0)">
+            <img src="/static/img/sport/sp3.png" />
+            <div class="article-content">
+                <div class="article-title" style="-webkit-box-orient: vertical;">日耳曼战车问鼎马拉卡纳</div>
+                <div class="desc" style="-webkit-box-orient: vertical;">4分钟，伊瓜因拿球禁区进入，小禁 区右侧斜射远角，滑门而过。
+                </div>
+                <div class="time">2018年01月04日</div>
+            </div>
+        </div>
+    </div> -->
+
+</div>

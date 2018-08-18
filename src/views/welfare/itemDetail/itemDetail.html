@@ -1,0 +1,159 @@
+<div class="item-detail">
+
+    <div class="list-banner"></div>
+    <div class="list-bg" :class="{'when-hidden-button': isShowButton===false}">
+        <div class="detail-top">
+
+            <img class="detail-banner" :src="imgUrl+activityDetail.img" alt="">
+            <!-- <img v-show="isShowButton&&from==='project'" class="hot-fir" src="/static/img/welfare/item_detail_06.png" alt="item_detail_06.png"> -->
+            <!-- <img v-show="isShowButton&&from==='active'" class="hot-sec" src="/static/img/welfare/item_detail_06.png" alt="item_detail_06.png"> -->
+
+            <div class="detail-bottom">
+                <div class="detail-tit" v-show="from==='project'">
+                    <h1>{{activityDetail.title}}</h1>
+                    <p>已有
+                        <span>{{activityDetail.number ? activityDetail.number : 0}}</span>人助力</p>
+                </div>
+                <div class="detail-tit" v-show="from==='active'">
+                    <h1>{{activityDetail.title}}</h1>
+                    <p>
+                        <span>{{activityDetail.number ? activityDetail.number : 0}}</span>/{{activityDetail.activityMember}}</p>
+                </div>
+                <div class="introduction-title">
+                    <p></p>
+                    <span v-show="from==='project'">项目简介</span>
+                    <span v-show="from==='active'">活动简介</span>
+                </div>
+                <h2>{{activityDetail.briefIntroduction}}</h2>
+            </div>
+        </div>
+        <div class="introduction" v-show="from==='project'">
+            <div class="introduction-title">
+                <p></p>
+                <span>筹资进度</span>
+            </div>
+            <div class="financing-box">
+
+                <div class="jindu">
+                    <h1>{{activityDetail.raisedMoney&&activityDetail.targetAmount?compute(activityDetail.raisedMoney,activityDetail.targetAmount):'0'}}%</h1>
+                    <div class="jindu-box">
+                        <div class="jin-list">
+                            <template>
+                                <yd-progressbar type="line" :progress="activityDetail.progress" trail-width="2" trail-color="#ef7c1b"></yd-progressbar>
+
+                            </template>
+
+                        </div>
+                        <p v-if="activityDetail.activityStatus === 1">募捐中</p>
+                        <p v-else-if="activityDetail.activityStatus === 0">已结项</p>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="chouzi">
+                    <div class="chou-list">
+                        <span>{{activityDetail.raisedMoney ? activityDetail.raisedMoney: 0}}</span>
+                        <h2>已筹款</h2>
+
+                    </div>
+                    <div class="chou-list">
+                        <h1></h1>
+                    </div>
+                    <div class="chou-list">
+                        <span>{{activityDetail.targetAmount}}</span>
+                        <h2>目标积分</h2>
+                    </div>
+                    <div class="chou-list">
+                        <h1></h1>
+                    </div>
+                    <div class="chou-list">
+                        <span>{{activityDetail.minMoney}}</span>
+                        <h2>最低捐赠</h2>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="introduction information">
+            <div class="introduction-title">
+                <p></p>
+                <span v-show="from==='project'">项目信息</span>
+                <span v-show="from==='active'">活动信息</span>
+            </div>
+            <h2>
+                <strong>发起时间：</strong>{{timeDeformate(activityDetail.updatedAt)}}</h2>
+            <h2 v-show="from==='active'">
+                <strong>活动时间：</strong>{{timeDeformate(activityDetail.activityTime)}}</h2>
+            <h2 v-show="from==='active'">
+                <strong>活动费用：</strong>{{activityDetail.enlistIntegral}}积分</h2>
+            <h2 v-show="from==='project'">
+                <strong>截止时间：</strong>{{timeDeformate(activityDetail.activityTime)}}</h2>
+            <h2>
+                <strong>发起组织：</strong>{{activityDetail.organization}}</h2>
+            <h2 v-show="from==='active'">
+                <strong>活动地址：</strong>{{activityDetail.address}}</h2>
+            <img style="margin: 2px 50%;transform: translate(-50%);" v-show="fromRecord&&from==='active'" :src="imgUrl+activityDetail.groupQrcode" />
+        </div>
+        <div :class="{fixedheight:tabNum===2}" class="arrange item-intro">
+            <!-- <div class="introduction-title">
+                <p></p>
+                <span v-show="from==='project'">项目详情</span>
+                <span v-show="from==='active'">活动详情</span>
+            </div> -->
+            <div class="item-tab">
+                <div class="tab" v-show="from==='project'">项目详情</div>
+                <div :class="{changeTab:tabNum===1}" class="tab" v-show="activityDetail.activitySummary&&activityDetail.activitySummary!=''&&from==='active'" @click="changeTab(1)">活动总结</div>
+                <div :class="{changeTab:tabNum===2}" class="tab" v-show="activityDetail.activitySummary&&activityDetail.activitySummary!=''&&from==='active'" @click="changeTab(2)">活动评论</div>
+                <div :class="{changeTab:tabNum===3}" class="tab" v-show="from==='active'" @click="changeTab(3)">活动详情</div>
+            </div>
+            <div v-if="tabNum===1" class="intro-c" v-html="activityDetail.activitySummary"></div>
+            <div v-if="tabNum===2" class="comitlist">
+                <yd-infinitescroll :callback="getComit" ref="infinitescrollDemo">
+                    <yd-list theme="1" slot="list">
+                        <div v-for="(obj,index) in commitList" :key="index" class="comment">
+                            <div class="userinfo">
+                                <img class="thmub" :src="obj.user.headimgurl?imgUrl+obj.user.headimgurl:'/static/img/member/mum_tx.png'" />
+                                <div class="info">
+                                    <div class="name">{{obj.user.nickname?obj.user.nickname:'暂无昵称'}}</div>
+                                    <div class="time">{{obj.createdAt?timeDeformate(obj.createdAt):'加载中'}}</div>
+                                </div>
+                            </div>
+                            <div class="com-content">{{obj.comment?obj.comment:'加载中'}}</div>
+                        </div>
+                    </yd-list>
+                    <!-- 数据全部加载完毕显示 -->
+                    <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">没有更多评论了，快去发表吧~</span>
+                    <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+                    <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+                </yd-infinitescroll>
+            </div>
+            <div v-if="tabNum===3" class="intro-c" v-html="activityDetail.details">
+
+
+            </div>
+        </div>
+    </div>
+    <div v-show="activityDetail.activitySummary&&activityDetail.activitySummary!=''&&from==='active'" class="box-bottom">
+        <input type="text" placeholder="输入您对这次活动的感想" v-model="commit" />
+        <button class="toCommit" type="button" @click="toCommit()">提交</button>
+    </div>
+    <div v-show="isShowButton&&from==='project'" class="box-bottom">
+        <img @click="shareBtn" src="/static/img/welfare/item_detail_15.png">
+        <button class="appoint" type="button" @click="toDonation()">我要助力</button>
+    </div>
+    <div v-show="isShowButton&&from==='active'" class="box-bottom">
+        <img @click="shareBtn" src="/static/img/welfare/item_detail_15.png">
+        <img style="margin: 0 20px;" v-show="activityDetail.isCollect" @click="toCollect(activityDetail)" src="/static/img/welfare/collected.png">
+        <img style="margin: 0 20px;" v-show="!activityDetail.isCollect" @click="toCollect(activityDetail)" src="/static/img/welfare/nocollect.png">
+        <button class="appoint" type="button" @click="toSignup()">我要报名</button>
+    </div>
+    <div class="share" v-show="shareImg" @click="shareBtn">
+        <img src="~@/public/img/share.png" alt="" srcset="">
+        <div class="share-tip">
+            <div>点击右上角分享给好友即可获得积分奖励</div>
+            <div class="know">
+                <span>我知道了</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="bind-box">
+    <!-- <div class="bind-top">
+        <div class="bind-process">
+            <img src="/static/img/bind_04.png" alt="">
+            <h1>1.验证手机号码</h1>
+        </div>
+        <div class="bind-process">
+            <p class="bind-item">----------------</p>
+        </div>
+        <div class="bind-process">
+
+            <img src="/static/img/bind_05.png" alt="">
+            <h1>2.绑定成功</h1>
+        </div>
+
+    </div> -->
+
+    <div class="bind-bottom">
+        <!-- <form action="" class="verification">
+            <div class="form-list">
+                <p>+86</p>
+                <input type="text" placeholder="请输入手机号" v-model="mobile">
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="form-list">
+                <h1 class="code"></h1>
+                <input type="text" placeholder="请输入验证码" v-model="code">
+                <button type="button" class="send-code" @click="getCode()">{{mes}}</button>
+            </div>
+
+        </form> -->
+        <div class="line">
+            <div class="title">姓名</div>
+            <input type="text" placeholder="输入您的姓名" v-model="name">
+        </div>
+        <div class="line">
+            <div class="title">手机号</div>
+            <input type="text" placeholder="输入您的手机号" v-model="mobile">
+        </div>
+        <div class="line">
+            <div class="title">验证码</div>
+            <input type="text" placeholder="请输入验证码" v-model="code">
+            <button @click="getCode()" class="send">{{mes}}</button>
+        </div>
+        <div class="line">
+            <div class="title">学校</div>
+            <!-- <selector direction="ltr" :options="schoolList" v-model="defaultSchool" placeholder="选择您所在的学校" style="bordaer: none"></selector> -->
+            <select name="" id="" v-model="school">
+                <option value="0">&nbsp;暂无</option>
+                <option v-for="item in schoolList" :value="item.id">&nbsp;{{item.schoolName}}</option>
+               
+            </select>
+        </div>
+        <p class="appoint" type="button" @click="bindMobile()">提交信息</p>
+    </div>
+
+    <!--  弹框    -->
+    <div v-if="willShow==true" class="selectChange">
+        <div class="bomb-box">
+            <div class="success-box">
+                <img src="/static/img/bind_03.png" alt="">
+                <h1>绑定成功</h1>
+
+                <h2>您已成功绑定
+                    <!-- 尾号为
+                    <span>4633</span>的 -->
+                    手机号码！
+                </h2>
+
+                <p class="appoint" type="button" @click="$router.push('./membership')">返回个人中心</p>
+            </div>
+        </div>
+    </div>
+
+</div>

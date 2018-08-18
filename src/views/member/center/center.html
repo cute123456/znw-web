@@ -1,0 +1,58 @@
+<div class="member">
+  <div class="list-banner">
+
+    <img class="ma" @click="showCode(true)" src="/static/img/mum_top_05.png" alt="">
+    <!-- @click="willShow=true" -->
+    <img @click="toMind" class="zhang" src="/static/img/mum_top_03.png" alt="">
+
+    <div class="clearfix"></div>
+  </div>
+  <div class="jifen-container">
+    <div class="jifen-box">
+      <div class="user-photo" @click="toPage('/member/membership')">
+        <img class="tou" :src="memberInfo.headimgurl ? HSrc(memberInfo.headimgurl):'/static/img/member/mum_tx.png'" alt="">
+
+        <p>{{memberInfo.nickname}}</p>
+      </div>
+      <div class="user-info" @click="toMind">
+        <div class="info-list" @click="toPage(item.page)" v-for="(item, index) in infoList" :key="item.id">
+          <img :src="item.image" alt="">
+          <p>{{item.text}}</p>
+        </div>
+
+      </div>
+      <div class="look">
+        <p>查看全部订单</p>
+        <img src="/static/img/more_03.png" alt="">
+      </div>
+    </div>
+    <div class="jifen-box extra-info">
+      <img class="extra-ban" src="/static/img/mum_03.png" alt="" @click="toPage('/member/qrcode')">
+      <div class="extra-pai">
+        <div class="extra-list" @click="toPage(item.page)" v-for="(item, index) in lists" :key="item.id">
+          <img :src="item.image" alt="">
+          <p>{{item.text}}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!--  二维码弹框    -->
+  <div v-if="willShow==true" class="selectChange">
+    <div class="bomb-box">
+      <div class="bomb-title">
+
+        <span></span>
+
+        <span>我的二维码</span>
+        <p @click="showCode(false)"></p>
+      </div>
+      <img :src="myCode" alt="">
+
+    </div>
+  </div>
+
+
+  <!-- 底部tab栏 -->
+  <fixBottom :check=4></fixBottom>
+</div>

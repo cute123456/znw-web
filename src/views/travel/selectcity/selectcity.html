@@ -1,0 +1,18 @@
+<div class="selectcity">
+    <div class="select-part">
+        <div class="select-left">
+            <span v-for="item in Area" :key="item.id" :class="{'changeTabcolor':selectedIndex == item.id}" @click="getClassify(item.id)" class="options">
+                    {{item.name?item.name:"加载中"}}
+                    <span class="countnum" v-show="item.selectnum!=0&&item.selected">{{item.selectnum}}</span>
+            </span>
+        </div>
+        <div class="select-right">
+            <span v-for="item in cityList" :class="item.isNeed==true?'cityoptions changeCityTabcolor':'cityoptions'" @click="selectNeed(item)">
+                    {{item.name?item.name:"加载中"}}
+            </span>
+        </div>
+        <div class="submit-btn" @click="save">提交</div>
+
+    </div>
+
+</div>

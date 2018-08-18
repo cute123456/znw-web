@@ -1,0 +1,163 @@
+.articledetail {
+    font-family: PingFang-SC-Regular;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    padding: 13px 15px 47px 15px;
+    background: #f09d35;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.article {
+    width: 100%;
+    background-color: #fff;
+    padding: 14px 15px 40px 15px;
+    position: relative;
+}
+
+.title {
+    width: 100%;
+    /* height: 34px; */
+    font-size: 18px;
+    line-height: 20px;
+    color: #151515;
+}
+
+.article img {
+    width: 100%;
+    margin: 15px 0;
+    /* height: 271px; */
+    /* background-color: #eeeeee; */
+}
+
+.content {
+    width: 100%;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 3px;
+    color: #444444;
+    margin: 20px 0;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: solid 1px #d4d4d4;
+}
+
+.somebun {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px 0 0 0;
+}
+
+.somebun img {
+    width: 33px;
+    height: 33px;
+    margin: 0;
+}
+
+.sharename {
+    width: 33px;
+    height: 11px;
+    font-size: 11px;
+    line-height: 11px;
+    color: #8b8b8b;
+    text-align: center;
+    margin-top: 6px;
+}
+
+.learned {
+    width: 100%;
+    height: 51px;
+    background-color: #f8f8f8;
+    margin-top: 35px;
+    display: flex;
+}
+
+.learned .book {
+    width: 45px;
+    height: 30px;
+    margin: 10px;
+}
+
+.learned .name {
+    width: calc(100% - 90px);
+    height: 51px;
+    font-size: 13px;
+    line-height: 51px;
+    color: #212121;
+}
+
+.learned .head-right {
+    width: 15px;
+    height: 15px;
+    margin: 18px 0;
+}
+
+.sanjiao {
+    width: 56px;
+    height: 56px;
+    background-color: #f09d35;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    /* IE 9 */
+    -webkit-transform: rotate(45deg);
+    /* Safari and Chrome */
+    position: absolute;
+    bottom: -28px;
+    right: -28px;
+}
+
+
+/* -----------------分享---------------- */
+
+.share {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.share img {
+    height: 60px;
+    position: absolute;
+    right: 25px;
+    top: 9px;
+}
+
+.share-tip {
+    position: absolute;
+    top: 75px;
+    right: 55px;
+    color: #ffcb2b;
+    width: 220px;
+    font-size: 21px;
+    font-family: "楷体"
+}
+
+.share-tip div:nth-child(1) {
+    line-height: 25px;
+    height: 25px;
+}
+
+.know {
+    text-align: center;
+    margin-top: 44px;
+}
+
+.know span {
+    border: 1px solid #ffcb2b;
+    border-radius: 5px;
+    padding: 6px 18px;
+    font-size: 16px;
+}

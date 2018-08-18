@@ -1,0 +1,11 @@
+<div class="lightmap">
+    <img id="bg-img" class="hiddenimg" src="/static/img/travel/purebg.png" />
+    <img id="map-img" class="hiddenimg" src="/static/img/travel/map-bg.png" />
+    <img id="code-img" class="hiddenimg" :src="qrCode?qrCode:''" />
+    <div id="TravelMap" style="position: absolute;top:0px;left:0;right:0;width: 100%;height: 272px;"></div>
+    <div id="myCanvas"></div>
+    <img v-show="isShowImg" style="z-index:99999;position: absolute;top: 0px;width:100%;height: 100%;" id="qrcode" alt="图片生成中...">
+    <img v-show="isShowImg" @click="closeImg" class="back" src="/static/img/travel/back.png" />
+    <div class="toimg" @click="generateImg">生成图片分享好友</div>
+    <div class="toSelect" @click="toSelect">重新选择城市</div>
+</div>

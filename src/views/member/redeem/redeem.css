@@ -1,0 +1,256 @@
+.home {
+    width: 100%;
+    background: #f6f7f9;
+    position: relative;
+    height: 100%;
+}
+
+.gongyi-item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+.gongyi-item .item-box {
+    width: 50%;
+    background: #fff;
+    padding-top: 10px;
+}
+
+.item-box p {
+    font-size: 16px;
+    color: #b9b9b9;
+    margin: 0 auto;
+    width: 80px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.selectTab {
+    color: #282828!important;
+    border-bottom: 3px solid #ef7c1b !important;
+}
+
+
+/* 兑换创客币 */
+
+.home .exchange {
+    /* padding-top: 18px; */
+    width: 92%;
+    box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.11);
+    border-radius: 5px;
+    background-color: #fff;
+    position: absolute;
+    left: 4%;
+    bottom: 0px;
+    top: 10px;
+    overflow: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.change-object {
+    font-family: PingFang-SC-Regular;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 15px;
+    color: #1d1d1d;
+    display: flex;
+}
+
+.change-object p {
+    width: 4px;
+    background-color: #ef7c1b;
+    height: 18px;
+    border-radius: 30%;
+    margin-top: 4px;
+}
+
+.change-object span {
+    height: 20px;
+    font-weight: 400;
+    font-stretch: normal;
+    line-height: 20px;
+    color: #1d1d1d;
+    font-size: 16px;
+    margin-left: 14px;
+    /* font-weight: 800; */
+    margin-top: 2px;
+}
+
+.head-box {
+    width: 90%;
+    margin: 16px auto;
+}
+
+.head-img {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+    /* margin-top: 12px;
+    margin-left: 50%;
+    transform: translate(-50%); */
+    border-radius: 50%;
+    border: 3px solid #d3dff3;
+}
+
+.head-box p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.nick-name {
+    /* width: 123px; */
+    height: 15px;
+    font-family: PingFang-SC-Regular;
+    font-size: 15px;
+    line-height: 15px;
+    color: #1d1d1d;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.input-area {
+    display: flex;
+    margin: 50px 10px 15px 10px;
+}
+
+.reddem-icon {
+    height: 40px;
+}
+
+input {
+    width: calc(100% - 20px);
+    background-color: #eeeeee;
+    border-radius: 10px;
+    color: #acacac;
+    height: 40px;
+    border: none;
+    font-size: 14px;
+    text-indent: 10px;
+}
+
+.integral {
+    margin: 20px 0;
+    margin: 22px 40px;
+}
+
+.integral p {
+    margin: 10px 0;
+}
+
+.integral span {
+    font-size: 14px;
+    color: #ff9c21;
+}
+
+.introduce {
+    height: 13px;
+    font-family: PingFang-SC-Regular;
+    font-size: 14px;
+    line-height: 13px;
+    color: #1d1d1d;
+    margin: 15px 0 0 35px;
+}
+
+
+/*    */
+
+.item-intro {
+    background: #fff;
+    padding-top: 10px;
+    margin-top: 12px;
+    border-radius: 4px;
+}
+
+.item-intro .intro-c {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 14px;
+    color: #313131;
+    padding-bottom: 12px;
+}
+
+.intro-c .content {
+    width: 86%;
+    margin-left: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.intro-c h2 {
+    margin: 15px;
+    display: flex;
+    font-size: 16px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.intro-c .integral {
+    margin-top: 10px;
+    margin-left: 5%;
+}
+
+.intro-c img {
+    /* width: 50px; */
+    height: 44px;
+}
+
+.intro-c p {
+    font-size: 14px;
+    color: #1d1d1d;
+    width: 86%;
+    text-align: left;
+    padding-left: 26px;
+}
+
+.intro-c h1 {
+    font-size: 14px;
+    color: #1d1d1d;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+.intro-c span {
+    font-size: 14px;
+    color: #f83838;
+}
+
+.intro-c input {
+    width: 84%;
+    border: none;
+    background: #eee;
+    color: #acacac;
+    border-radius: 6px;
+    padding-left: 6px;
+    margin-left: 10px;
+    margin-top: 4px;
+    vertical-align: middle;
+}
+
+
+/*    */
+
+.change-button {
+    font-family: PingFang-SC-Regular;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 44px;
+    color: #fff;
+    width: 90%;
+    height: 44px;
+    background-image: linear-gradient(90deg, #ffc40f 0%, #ff9a22 100%);
+    border-radius: 20px;
+    /* margin-left: 5%;
+    position: absolute;
+    bottom: 16px; */
+    text-align: center;
+    margin: 10px 5%;
+}

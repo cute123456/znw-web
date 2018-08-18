@@ -1,0 +1,98 @@
+<div class="activityDetail">
+
+    <div class="list-banner"></div>
+    <div class="list-bg" :class="{'when-hidden-button': isShowButton===false}">
+        <div class="detail-top">
+
+            <img class="detail-banner" :src="imgUrl+activityDetail.img" alt="">
+            <!-- <img v-show="isShowButton&&from==='project'" class="hot-fir" src="/static/img/welfare/item_detail_06.png" alt="item_detail_06.png"> -->
+            <!-- <img v-show="isShowButton&&from==='active'" class="hot-sec" src="/static/img/welfare/item_detail_06.png" alt="item_detail_06.png"> -->
+
+            <div class="detail-bottom">
+                <div class="detail-tit" v-show="from==='active'">
+                    <h1>{{activityDetail.title}}</h1>
+                    <p>
+                        <span>{{activityDetail.countEnlist ? activityDetail.countEnlist : 0}}</span>/{{activityDetail.maxNumber}}</p>
+                </div>
+                <div class="introduction-title">
+                    <p></p>
+                    <span v-show="from==='active'">旅游简介</span>
+                </div>
+                <h2>{{activityDetail.briefIntroduction}}</h2>
+            </div>
+        </div>
+
+        <div class="introduction information">
+            <div class="introduction-title">
+                <p></p>
+                <span v-show="from==='active'">旅游信息</span>
+            </div>
+
+            <h2 v-show="from==='active'">
+                <strong>活动时间：</strong>{{activityDetail.startTime}}
+            </h2>
+            <h2>
+                <strong>发起组织：</strong>{{activityDetail.sponsorOrganization}}
+            </h2>
+            <h2 v-show="from==='active'">
+                <strong>目的地：</strong>{{activityDetail.destination}}</h2>
+            <img style="margin: 2px 50%;transform: translate(-50%);" v-show="fromRecord&&from==='active'" :src="imgUrl+activityDetail.groupQrcode" />
+        </div>
+        <div :class="{fixedheight:tabNum===2}" class="arrange item-intro">
+            <div class="introduction-title">
+                <p></p>
+                <span v-show="from==='active'">旅游详情</span>
+            </div>
+            <!-- <div class="item-tab">
+                <div class="tab" v-show="from==='project'">项目详情</div>
+                <div :class="{changeTab:tabNum===1}" class="tab" v-show="activityDetail.activitySummary&&activityDetail.activitySummary!=''&&from==='active'" @click="changeTab(1)">活动总结</div>
+                <div :class="{changeTab:tabNum===2}" class="tab" v-show="activityDetail.activitySummary&&activityDetail.activitySummary!=''&&from==='active'" @click="changeTab(2)">活动评论</div>
+                <div :class="{changeTab:tabNum===3}" class="tab" v-show="from==='active'" @click="changeTab(3)">活动详情</div>
+            </div> -->
+            <div v-if="tabNum===1" class="intro-c" v-html="activityDetail.activitySummary"></div>
+            <div v-if="tabNum===2" class="comitlist">
+                <yd-infinitescroll :callback="getComit" ref="infinitescrollDemo">
+                    <yd-list theme="1" slot="list">
+                        <div v-for="(obj,index) in commitList" :key="index" class="comment">
+                            <div class="userinfo">
+                                <img class="thmub" :src="obj.user.headimgurl?imgUrl+obj.user.headimgurl:'/static/img/member/mum_tx.png'" />
+                                <div class="info">
+                                    <div class="name">{{obj.user.nickname?obj.user.nickname:'暂无昵称'}}</div>
+                                    <div class="time">{{obj.createdAt?timeDeformate(obj.createdAt):'加载中'}}</div>
+                                </div>
+                            </div>
+                            <div class="com-content">{{obj.comment?obj.comment:'加载中'}}</div>
+                        </div>
+                    </yd-list>
+                    <!-- 数据全部加载完毕显示 -->
+                    <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">没有更多评论了，快去发表吧~</span>
+                    <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+                    <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+                </yd-infinitescroll>
+            </div>
+            <div v-if="tabNum===3" class="intro-c" v-html="activityDetail.detail">
+
+
+            </div>
+        </div>
+    </div>
+    <!-- <div v-show="activityDetail.activitySummary&&activityDetail.activitySummary!=''&&from==='active'" class="box-bottom">
+        <input type="text" placeholder="输入您对这次活动的感想" v-model="commit" />
+        <button class="toCommit" type="button" @click="toCommit()">提交</button>
+    </div> -->
+    <div v-show="isShowButton&&from==='active'" class="box-bottom">
+        <img @click="shareBtn" src="/static/img/welfare/item_detail_15.png">
+        <!-- <img style="margin: 0 20px;" v-show="activityDetail.isCollect" @click="toCollect(activityDetail)" src="/static/img/welfare/collected.png">
+        <img style="margin: 0 20px;" v-show="!activityDetail.isCollect" @click="toCollect(activityDetail)" src="/static/img/welfare/nocollect.png"> -->
+        <button class="appoint" type="button" @click="toSignup()">我要报名</button>
+    </div>
+    <div class="share" v-show="shareImg" @click="shareBtn">
+        <img src="~@/public/img/share.png" alt="" srcset="">
+        <div class="share-tip">
+            <div>点击右上角分享给好友即可获得积分奖励</div>
+            <div class="know">
+                <span>我知道了</span>
+            </div>
+        </div>
+    </div>
+</div>

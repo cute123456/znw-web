@@ -1,0 +1,82 @@
+<div :class="isShowWelcom?'hiddenpage item-detail':'item-detail'">
+    <div class="list-bg">
+        <div class="introduction information">
+            <div class="introduction_title">
+                <p></p>
+                <span>助力项目</span>
+            </div>
+            <!-- <strong>{{item.text}}</strong>{{item.value}} -->
+            <h2>
+                <strong>项目名称：</strong>{{activityDetail.title}}</h2>
+            <h2>
+                <strong>发起时间：</strong>{{timeDeformate(activityDetail.updatedAt)}}</h2>
+            <h2>
+                <strong>截止时间：</strong>{{timeDeformate(activityDetail.activityTime)}}</h2>
+            <h2>
+                <strong>发起组织：</strong>{{activityDetail.organization}}</h2>
+            <h2>
+                <strong>目标积分：</strong>{{activityDetail.targetAmount}}</h2>
+        </div>
+        <div class="item-intro">
+            <div class="introduction_title">
+                <p></p>
+                <span>助力金额</span>
+            </div>
+            <div class="intro-c">
+                <h2>
+                    <img src="/static/img/donation_03.png">
+                    <!-- <input class="content" type="text" value="输入金额"> -->
+                    <input class="content" type="number" v-model="money" placeholder="输入金额">
+                </h2>
+                <h2>
+                    <img src="/static/img/donation_06.png">
+                    <!-- <input class="content" type="text" value="可使用2300积分"> -->
+                    <input class="content" type="number" v-model="available" placeholder="请输入你要捐助的积分">
+                </h2>
+                <h2>
+                    <h3></h3>
+                    <p>可抵扣金额
+                        <span>{{moneyPay.canUseMoney}}</span> 元,实际支付
+                        <span> {{moneyPay.Payment}}</span>元。</p>
+                </h2>
+            </div>
+            <!--   -->
+            <!-- <div class="introduction_title">
+        <p></p>
+        <span>支付方式</span>
+      </div>
+      <div class="intro-c">
+        <h2>
+          <img src="/static/img/donation_08.png">
+          <div class="content">
+            <h1>微信支付</h1>
+            <label class="demo-label">
+
+              <input class="demo-radio" type="radio" name="demo-radio" checked="checked">
+              <span class="demo-radioInput"></span>
+            </label>
+          </div>
+        </h2>
+      </div> -->
+
+            <!-- <div class="introduction_title">
+        <p></p>
+        <span>积分说明</span>
+      </div>
+      <div class="intro-c">
+
+        <p class="integral">1、积分抵扣比例为
+          <span>100：1</span>。</p>
+      </div> -->
+        </div>
+    </div>
+    <div class="signUp-box">
+        <button class="appoint" type="button" @click="wxPay()">立刻助力</button>
+    </div>
+    <div v-if="isShowWelcom" class="invited">
+        <img src="/static/img/welfare/jzcg.png" />
+        <div style="-webkit-box-orient: vertical;" class="username">捐助成功</div>
+        <div style="-webkit-box-orient: vertical;" class="desc">{{activityDetail.donationHint?activityDetail.donationHint:'我们成功收到您献的爱心啦~'}}</div>
+        <div @click="close" class="join-btn">确定</div>
+    </div>
+</div>

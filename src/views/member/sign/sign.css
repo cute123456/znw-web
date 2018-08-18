@@ -1,0 +1,358 @@
+.signed-box {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    /* background: url('/static/img/sign_bg_02.png') no-repeat center; */
+    /* background-size: cover; */
+    /* padding-left: 100%; */
+    background: #f6f7f9;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.hiddenY {
+    overflow: hidden!important;
+}
+
+.signbgimg {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.selectChange {
+    background: rgba(0, 0, 0, .2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* .signed-box .sign-bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+} */
+
+.signed-top {
+    margin: 0 auto;
+    position: relative;
+    top: 44px;
+    z-index: 99;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+    width: 85%;
+    height: 83px;
+    border-radius: 5px;
+    border: dashed 1px #ffffff;
+}
+
+.sign-cartonimg {
+    width: 83px;
+    position: absolute;
+    left: 33px;
+    bottom: 6px;
+}
+
+.signed-top .top-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0 14px;
+    white-space: nowrap;
+    /* flex: 1; */
+}
+
+.top-content img {
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin-left: 32px;
+}
+
+.top-content h1 {
+    color: #fff;
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 10px;
+}
+
+.top-content p {
+    width: 2px;
+    height: 36px;
+    background: #fff;
+}
+
+
+/*    */
+
+.signed-box .sign-time {
+    width: 92%;
+    margin: 0 auto;
+    background: #fff;
+    position: absolute;
+    top: 145px;
+    margin-left: 4%;
+    border-radius: 6px;
+}
+
+.sign-time .decorate {
+    width: 70%;
+    position: relative;
+    top: -12px;
+    left: 15%;
+}
+
+.sign-time .sign-month {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.sign-month p {
+    font-size: 16px;
+    color: #000;
+    margin: 0 4px 10px 0;
+    text-align: center;
+}
+
+.sign-month span {
+    margin-left: 26px;
+}
+
+.sign-time .sign-day {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #dcdcdc;
+    margin: 0px 10px;
+    padding: 10px 18px;
+}
+
+.sign-day h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #fff;
+}
+
+.sign-day p {
+    font-size: 16px;
+    color: #000;
+    margin: 10px 0;
+}
+
+.sign-day h3 {
+    font-size: 16px;
+    color: #fff;
+    padding: 6px;
+    font-weight: normal;
+    background: #49dd83;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+}
+
+.sign-time .clock {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.clock .clock-item {
+    align-items: flex-start;
+}
+
+.clock h1 {
+    margin-bottom: 16px;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 12px;
+    background: url('/static/img/signed_07.png') no-repeat;
+    background-size: 84%;
+    width: 137px;
+    height: 28px;
+    line-height: 28px;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: normal;
+}
+
+.status {
+    background: #eee !important;
+}
+
+.clock .card {
+    width: 122px;
+    height: 122px;
+    margin: 0 auto;
+    background: url('/static/img/signed_10_03.png') no-repeat center;
+    background-size: 100%;
+    /* padding-bottom: 40%; */
+}
+
+.clock .cardChange {
+    margin: 0 auto;
+    height: 122px;
+    width: 122px;
+    /* line-height: 150px; */
+    /* text-align: center;
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: 2px; */
+    background: url('/static/img/signed_11_03.png') no-repeat center;
+    background-size: 100%;
+}
+
+.clock h3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.clock span {
+    font-size: 14px;
+    color: #0e0e0e;
+    margin: 20px 12px;
+    letter-spacing: 2px;
+}
+
+
+/*    */
+
+.bomb-box {
+    width: 80%;
+    margin: 0 auto;
+    background: #fff;
+    position: fixed;
+    top: 30%;
+    left: 10%;
+    z-index: 100;
+    border-radius: 8px;
+}
+
+.bomb-box .bomb-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 18px;
+    background: url('/static/img/sign-tk_03.png') no-repeat center;
+    background-size: 100%;
+    color: #fff;
+    padding: 8px 30px;
+}
+
+.bomb-title p {
+    width: 16px;
+    height: 16px;
+    margin-top: 6px;
+    background: url('/static/img/sign-tk_04_03.png') no-repeat center;
+}
+
+.bomb-box .bomb-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #000;
+    margin: 12px 0;
+    align-items: flex-start;
+    height: 156px;
+    padding: 18px 0;
+}
+
+.bomb-content p {
+    margin-left: 30px;
+}
+
+.regular {
+    width: 80%;
+    height: 90px;
+    background-color: #eeeeee;
+    margin: 20px auto;
+}
+
+.regular .title {
+    width: 100%;
+    height: 12px;
+    font-family: PingFang-SC-Regular;
+    font-size: 12px;
+    line-height: 12px;
+    color: #0e0e0e;
+    margin: 12px 0 0 12px;
+}
+
+.regular .desc {
+    width: 98%;
+    height: 20px;
+    font-family: PingFang-SC-Regular;
+    font-size: 12px;
+    line-height: 20px;
+    color: #000000;
+    margin: 3px auto;
+    text-indent: 20px;
+}
+
+.bottomline {
+    border-bottom: 3px solid #49dd83!important;
+}
+
+
+/* -----------------每日一句--------------------- */
+
+.invited {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    z-index: 99;
+    overflow-y: scroll;
+}
+
+.headimg {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: none;
+}
+
+.close {
+    width: calc(100% - 40px);
+    height: 30px;
+    font-family: PingFang-SC-Medium;
+    font-size: 15px;
+    line-height: 30px;
+    color: #fff;
+    margin: 10px auto;
+    text-align: right;
+}

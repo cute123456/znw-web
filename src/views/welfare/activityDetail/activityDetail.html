@@ -1,0 +1,98 @@
+<div class="item-detail">
+
+    <div class="list-banner"></div>
+    <div class="list-bg">
+      <div class="detail-top">
+     
+          <!-- <img class="detail-banner" src="/static/img/welfare/item_detail_03.png" alt=""> -->
+          <img class="hot" src="/static/img/welfare/item_detail_06.png" alt="item_detail_06.png">
+     
+        <div class="detail-bottom">
+          <div class="detail-tit">
+            <h1>{{activityDetail.title}}</h1>
+            <p>已有
+              <span>{{activityDetail.number}}</span>人参加</p>
+          </div>
+          <div class="introduction_title">
+            <p></p>
+            <span>项目简介</span>
+          </div>
+          <h2>{{activityDetail.briefIntroduction}}</h2>
+        </div>
+      </div>
+      <div class="introduction">
+        <div class="introduction_title">
+          <p></p>
+          <span>筹资进度</span>
+        </div>
+        <div class="financing-box">
+  
+          <div class="jindu">
+            <h1>{{(activityDetail.raisedMoney / activityDetail.targetAmount) * 100}}%</h1>
+            <div class="jindu_box">
+              <div class="jin_list">
+                <template>
+                  <yd-progressbar type="line" :progress="activityDetail.progress" trail-width="2" trail-color="#ef7c1b"></yd-progressbar>
+  
+                </template>
+  
+              </div>
+              <p v-if = "activityDetail.activityStatus === 1">募捐中</p>
+              <p v-else-if = "activityDetail.activityStatus === 0">已结项</p>              
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <div class="chouzi">
+            <div class="chou_list">
+              <span>已筹款</span>
+              <h2>{{activityDetail.raisedMoney}}</h2>
+  
+            </div>
+            <div class="chou_list">
+              <h1></h1>
+            </div>
+            <div class="chou_list">
+              <span>目标筹款</span>
+              <h2>{{activityDetail.targetAmount}}</h2>
+            </div>
+            <div class="chou_list">
+              <h1></h1>
+            </div>
+            <div class="chou_list">
+              <span>最低捐赠</span>
+              <h2>{{activityDetail.minMoney}}</h2>
+            </div>
+  
+          </div>
+        </div>
+  
+      </div>
+      <div class="introduction information">
+        <div class="introduction_title">
+          <p></p>
+          <span>项目信息</span>
+        </div>
+        <h2>
+          <strong>发起时间:</strong>{{activityDetail.updatedAt}}</h2>
+        <h2>
+          <strong>发起组织:</strong>{{activityDetail.organization}}</h2>
+        <h2>
+          <strong>活动地址:</strong>{{activityDetail.address}}</h2>
+  
+      </div>
+      <div class="arrange item-intro">
+        <div class="introduction_title">
+          <p></p>
+          <span>项目详情</span>
+        </div>
+        <div class="intro-c">
+          {{activityDetail.details}}
+        </div>
+      </div>
+    </div>
+    <div class="box-bottom">
+     <img src="/static/img/welfare/item_detail_15.png">
+      <button class="appoint" type="button" @click="$router.push('./signUp')">我要报名</button>
+    </div>
+  </div>
+  

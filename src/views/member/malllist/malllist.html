@@ -1,0 +1,27 @@
+<div>
+    <div class="img-logo">
+        <img src="/static/img/member/sclogo.png" />
+    </div>
+    <div class="collectlist">
+        <yd-infinitescroll :callback="getCollectList" ref="infinitescrollDemo">
+            <yd-list theme="1" slot="list">
+                <div class="project-list" v-for="(obj,index) in collectList" :key="obj.id">
+                    <!-- <img class="active-img" :src="obj.img?imgUrl+obj.img:'/static/img/welfare/gong_item_08.png'" alt=""> -->
+                    <img class="active-img" :src="imgUrl+obj.img" />
+                    <div class="active-title" style="-webkit-box-orient: vertical;">{{obj.name?obj.name:'加载中'}}</div>
+                    <div class="active-time">
+                        <!-- <img class="active-time-img" src="/static/img/member/active-time.png" alt="">
+            <div class="active-period">{{obj.createdAt?timeDeformate(obj.createdAt):'加载中'}}</div> -->
+                        {{obj.integral}}<span style="font-size: 12px; ">积分</span>
+                    </div>
+                    <div v-show="obj.stock>0" class="cancle-button" @click="toExchange(obj)">立即兑换</div>
+                    <div v-show="obj.stock<=0" class="cancle-button saled">已兑完</div>
+                </div>
+            </yd-list>
+            <!-- 数据全部加载完毕显示 -->
+            <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">没有数据啦~</span>
+            <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+            <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+        </yd-infinitescroll>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="release">
+    <textarea class="suggest " placeholder="这一次游玩的想法..." v-model="content"></textarea>
+    <div class="img-part">
+        <div v-for="(image,index) in noteimg" v-if="noteimg.length>0" class="addimg">
+            <img :src="imgUrl + image" class="imgItem">
+            <img @click="editImage(image,index)" class="closeIcon" src="/static/img/travel/notes/empty.png">
+        </div>
+        <div :class="{hiddenadd:noteimg.length===3}" class="addimg">
+            <img class="add-icon" src="/static/img/travel/notes/add.png" />
+            <label style="position: absolute;top: 0px;right: 0px;width: 90px;height: 90px;">
+                    <input name="noteimg" @change="fileChange" type="file" accept="image/*" style="display:none;">
+                </label>
+        </div>
+
+    </div>
+    <div class="save-btn" @click="save">发布</div>
+</div>

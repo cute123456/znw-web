@@ -1,0 +1,154 @@
+<div :class="isShowWelcom?'hiddenpage home':'home'">
+
+    <!-- 首页轮播图 -->
+    <div style="background: #fff;position: relative;width: 92%;margin: 0 auto;padding-bottom: 15px;overflow: hidden;">
+        <div class="home-banner">
+            <template>
+            <yd-slider :autoplay=lunbo.autoplay>
+                <yd-slider-item v-for="(item, index) in lunbo.imgList" :key="item.id" @click.native="goHref(item.url)">
+                    <!-- <a :href="item.url"> -->
+                    <img :src="imgUrl+item.src">
+                    <!-- </a> -->
+                </yd-slider-item>
+            </yd-slider>
+        </template>
+        </div>
+        <!-- 选择 -->
+
+        <!-- <div class="choose">
+        <div class="cho-fir col-yi" @click="toSign">
+            <h1>爱打卡</h1>
+            <p>每天早起打卡</p>
+
+        </div>
+        <div class="cho-fir">
+            <div class="cho-sec col-er-fir" @click="toLearn">
+                <div class="item-lable">爱学习</div>
+            </div>
+            <div class="cho-sec col-er-sec" @click="toSport">
+                <div class="empty-space"></div>
+                <div class="item-lable-right">爱运动</div>
+            </div>
+        </div>
+        <div class="cho-fir">
+            <div @click="toItem" class="cho-sec col-san-fir">
+                <div class="item-lable" style="padding-left: 8px;">爱公益</div>
+            </div>
+            <div class="cho-sec col-san-sec" @click="toMind">
+                <div class="empty-space"></div>
+                <div class="item-lable-right">爱旅行</div>
+            </div>
+        </div>
+    </div> -->
+        <div class="mod">
+            <div class="pxsbx" @click="toSign"><img src="/static/img/home/zq.png" /></div>
+            <div class="pxsbx" @click="toLearn"><img src="/static/img/home/xx.png" /></div>
+            <div class="pxsbx" @click="toSport"><img src="/static/img/home/yd.png" /></div>
+            <div class="pxsbx" @click="toItem"><img src="/static/img/home/gy.png" /></div>
+            <div class="pxsbx" style="border:none;" @click="toTravel"><img src="/static/img/home/lx.png" /></div>
+        </div>
+        <div class="sanjiao"></div>
+    </div>
+    <!-- 公益 -->
+
+    <!-- <div class="gong-title">
+        <p></p>
+        <span>特色活动</span>
+    </div> -->
+    <div class="gongyi">
+        <div v-for="(item, index) in lists" :key="item.id" @click="toPage(item)" :class="item.type===0?'lowheight gong-list':'gong-list'">
+            <img class="list-mid" :src="imgUrl+item.img" alt="">
+            <div class="list-title" style="-webkit-box-orient: vertical;">
+                {{item.title?item.title:'加载中'}}
+            </div>
+            <div class="list-introduce" style="-webkit-box-orient: vertical;">
+                {{item.briefIntroduction?item.briefIntroduction:'加载中'}}
+            </div>
+            <!-- <div class="list-mess">
+                <div class="sj">
+                    <img src="/static/img/sma_tu_21_03.png" alt="">
+                    <span>{{item.updatedAt}}</span>
+                </div>
+                <div class="sj" style="margin-left:30px">
+                    <img src="/static/img/sma_tu_18.png" alt="">
+                    <span>{{item.number ? item.number : 0}}人</span>
+                </div>
+            </div> -->
+
+
+            <div v-show="item.type===1" class="jindu">
+                <!-- <h1>{{item.raisedMoney&&item.targetAmount?compute(item.raisedMoney,item.targetAmount):'0'}}%</h1> -->
+                <div class="jindu-box">
+                    <div class="jin-list">
+                        <template>
+                            <yd-progressbar type="line" :progress="item.progress" trail-width="2" trail-color="#ef7c1b"></yd-progressbar>
+                        </template>
+
+                    </div>
+                    <!-- <p v-if="item.activityStatus === 1">募捐中</p>
+                    <p v-else-if="item.activityStatus === 0">已结束</p>
+                    <div class="clearfix"></div> -->
+                </div>
+            </div>
+            <div v-show="item.type===1" class="apply-num">
+                <div class="join-num">
+                    <div class="num">{{item.number?item.number:'0'}}</div>
+                    <div class="lable">参加人数</div>
+                </div>
+                <div class="join-num">
+                    <div class="num">{{item.targetAmount?targetDeformate(item.targetAmount):'0'}}</div>
+                    <div class="lable">目标积分</div>
+                </div>
+                <div class="join-num">
+                    <div class="num">{{item.activityTime&&countDay(item.activityTime)>=0?countDay(item.activityTime):'已结束'}}</div>
+                    <div class="lable">剩余天数</div>
+                </div>
+            </div>
+            <div v-show="item.type===0" style="margin-top: 15px;" class="apply-num">
+                <div class="join-num">
+                    <div class="num">{{item.number?item.number:'0'}}/{{item.activityMember}}</div>
+                    <div class="lable">参加人数</div>
+                </div>
+                <div class="join-num">
+                    <div class="num">{{item.enlistIntegral?item.enlistIntegral:'免费'}}</div>
+                    <div class="lable">积分</div>
+                </div>
+                <div class="join-num">
+                    <div class="num">{{item.activityTime}}</div>
+                    <div class="lable">活动时间</div>
+                </div>
+            </div>
+            <!-- <div class="chouzi">
+                <div class="chou-list">
+                    <h2>{{item.raisedMoney ? item.raisedMoney : 0}}</h2>
+                    <span>已筹金额</span>
+                </div>
+                <div class="chou-list">
+                    <h1></h1>
+                </div>
+                <div class="chou-list">
+                    <h2>{{item.targetAmount}}</h2>
+                    <span>目标金额</span>
+                </div>
+                <div class="chou-list">
+                    <h1></h1>
+                </div>
+                <div class="chou-list">
+                    <h2>{{item.minMoney}}</h2>
+                    <span>最低捐赠</span>
+                </div>
+            </div> -->
+            <div class="sanjiao"></div>
+        </div>
+
+    </div>
+
+    <div style="height: 2px;"></div>
+    <!-- 底部tab栏 -->
+    <fixBottom :check="1"></fixBottom>
+    <div v-if="isShowWelcom" class="invited">
+        <img src="/static/img/home/invited.png" />
+        <div style="-webkit-box-orient: vertical;" class="username">{{invitedUsername?invitedUsername:''}}</div>
+        <div @click="joinUs" class="join-btn">一起玩</div>
+    </div>
+</div>

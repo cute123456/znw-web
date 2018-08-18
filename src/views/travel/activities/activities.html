@@ -1,0 +1,83 @@
+<div class="activities-list">
+    <!-- 公益 -->
+    <!-- <yd-accordion>
+        <yd-accordion-item :auto="false" :class="type===0?'changeItem':'nochange'" ref="accordion" title="公益参与" @click.native="changType(0)">
+            <group>
+                <radio :class="selectvalue===1?'ctrColor':''" :selected-label-style="{color: '#ef7c1b'}" title="title" :options="options" v-model="selectvalue" @click.stop.native="change($event)"></radio>
+            </group>
+        </yd-accordion-item>
+        <yd-accordion-item :auto="false" ref="accordiontwo" :class="type===1?'changeItem':'nochange'" title="公益助力" @click.native="changType(1)">
+            <group>
+                <radio :class="selectvalue===1?'ctrColor':''" :selected-label-style="{color: '#ef7c1b'}" title="title" :options="options" v-model="selectvalue" @click.stop.native="change($event)"></radio>
+            </group>
+        </yd-accordion-item>
+    </yd-accordion> -->
+    <div class="gongyi-item">
+
+        <div class="item-box" v-on:click.stop="changType(1)">
+            <p :class="type===1?'selectTab':''">进行中</p>
+            <!-- <icon-svg v-if="type != 0" icon-class="icon-copy-copy" class="arrowIcon"></icon-svg>
+            <icon-svg v-if="type === 0" icon-class="icon-copy-copy-copy" class="arrowIcon"></icon-svg> -->
+        </div>
+        <div class="item-box" v-on:click.stop="changType(0)">
+            <p :class="type===0?'selectTab':''">已结束</p>
+        </div>
+    </div>
+    <div class="gongyi">
+
+
+
+        <!-- content -->
+        <!-- 活动列表 -->
+        <div class="project-list">
+            <yd-infinitescroll :callback="getWelfareItem" ref="infinitescrollDemo">
+                <yd-list theme="1" slot="list">
+                    <div v-for="(item, index) in welfareActivity" :key="index" @click="toPage(item.id,'active')" class="lowheight gong-list">
+                        <!-- <img class="list-mid" :src="imgUrl+item.image" alt=""> -->
+                        <img class="list-mid" :src="imgUrl+item.image" alt="">
+                        <div class="list-title" style="-webkit-box-orient: vertical;">
+                            {{item.title?item.title:'加载中'}}
+                        </div>
+                        <div class="list-introduce" style="-webkit-box-orient: vertical;">
+                            {{item.briefIntroduction?item.briefIntroduction:'加载中'}}
+                        </div>
+
+                        <div style="margin-top: 15px;" class="apply-num">
+                            <div class="join-num">
+                                <div class="num">{{item.countEnlist?item.countEnlist:'0'}}/{{item.maxNumber?item.maxNumber:'加载中'}}</div>
+                                <div class="lable">参加人数</div>
+                            </div>
+                            <div class="join-num">
+                                <div class="num">{{item.enlistMoney?item.enlistMoney:'免费'}}</div>
+                                <div class="lable">费用</div>
+                            </div>
+                            <div class="join-num">
+                                <div class="num">{{item.startTime?timeDeformate(item.startTime):'加载中'}}</div>
+                                <div class="lable">活动时间</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </yd-list>
+                <!-- 数据全部加载完毕显示 -->
+                <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">没有数据啦~</span>
+                <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+                <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+            </yd-infinitescroll>
+
+        </div>
+        <div v-if="pageSize<=0">
+            <div class="no_data flexd">
+                <div class="imgBox">
+                    <img src="/static/img/welfare/nolist.png" alt="加载中">
+                </div>
+                <p style="color:#737373;margin:8px 0;font-size:14px;">还没有内容</p>
+                <p style="color:#737373;margin:8px 0;font-size:14px;">敬请期待~</p>
+                <!-- <div style="color:#fff;background:#e42324;padding:8px 18px;border-radius:20px;font-size:15px;" @click="$router.push('/my/addAddress')">添加新地址</div> -->
+            </div>
+        </div>
+    </div>
+    <div style="height: 2px;"></div>
+    <!-- 底部tab栏 -->
+    <!-- <fixBottom :check=2></fixBottom> -->
+</div>

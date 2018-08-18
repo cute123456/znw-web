@@ -1,0 +1,245 @@
+.appoint {
+    background: none;
+    border: none;
+    color: #fff;
+    height: 44px;
+    text-align: center;
+    line-height: 44px;
+    width: 88%;
+    letter-spacing: 2px;
+    background: -webkit-gradient(linear, 0 50%, 100% 50%, from(#ffc310), to(#ff9b22));
+    border-radius: 37px;
+    font-size: 14px;
+    margin: 0 auto;
+}
+
+.membership {
+    width: 100%;
+    background: #f6f7f9;
+    font-family: PingFang-SC-Regular;
+    /* padding-bottom: 70px; */
+}
+
+.membership h3 {
+    width: 92%;
+    margin: 28px auto 0 auto;
+    text-align: left;
+    color: #acacac;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.membership .membership-top {
+    width: 92%;
+    padding: 4px 26px;
+    position: relative;
+    top: 10px;
+    margin: 0 auto;
+    padding: 4px 26px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .05);
+}
+
+.membership-top .membership-list,
+.membership-tou {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #1d1d1d;
+}
+
+.membership-list-two {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+    color: #1d1d1d;
+}
+
+.membership-top .membership-list {
+    padding: 0;
+}
+
+.membership-top .head-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    /* box-shadow: 0px 2px 6px rgba(0, 0, 0, .1) */
+    border: 1px solid #d3dff3;
+    position: relative;
+}
+
+.membership-top h1 {
+    /* font-weight: 600; */
+    /* width: 55px; */
+    height: 50px;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 50px;
+    color: #1d1d1d;
+}
+
+.membership-tou h1 {
+    height: 73px;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 73px;
+    color: #1d1d1d;
+}
+
+.membership-top h2 {
+    font-weight: normal;
+    /* color: #acacac; */
+    /* letter-spacing: 2px; */
+}
+
+.information {
+    color: #acacac;
+    padding-right: 12px;
+    background-size: 6px;
+    background: url('/static/img/jiantou_03.png') no-repeat right;
+}
+
+.head-right {
+    width: 20px;
+    height: 20px;
+}
+
+.lable-one {
+    height: 50px;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 50px;
+    color: #1d1d1d;
+    width: 32px;
+}
+
+.sub-lable {
+    width: calc(100% - 52px);
+    text-align: right;
+    height: 50px;
+    font-size: 14px;
+    line-height: 50px;
+    color: #acacac;
+}
+
+select {
+    direction: rtl;
+}
+
+select option {
+    direction: ltr;
+    text-indent: 5px;
+}
+
+
+/* -----------弹出框--------------- */
+
+.changename-box {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .3);
+    z-index: 99px;
+}
+
+.input-name {
+    width: 80%;
+    height: 186px;
+    background-color: #fff;
+    box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.11);
+    border-radius: 5px;
+    margin: 50% auto 0 auto;
+    padding-top: 20px;
+}
+
+.input-title {
+    width: 100%;
+    height: 30px;
+    font-size: 16px;
+    line-height: 30px;
+    color: #1d1d1d;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.message {
+    width: 90%;
+    height: 40px;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    margin: 0 5%;
+    text-indent: 12px;
+}
+
+.change-button {
+    width: 110px;
+    height: 30px;
+    background-image: linear-gradient(90deg, rgba(255, 193, 16, 0.99) 0%, rgba(255, 156, 33, 0.99) 100%), linear-gradient( rgba(255, 255, 255, 0.99), rgba(255, 255, 255, 0.99));
+    background-blend-mode: normal, normal;
+    border-radius: 15px;
+    opacity: 0.99;
+    font-size: 15px;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+    margin: 28px auto 0 auto;
+}
+
+.add-button {
+    width: 80%;
+    height: 37px;
+    background-image: linear-gradient(90deg, rgba(255, 196, 15, 0.99) 0%, rgba(255, 156, 33, 0.99) 100%), linear-gradient( rgba(49, 157, 255, 0.99), rgba(49, 157, 255, 0.99));
+    background-blend-mode: normal, normal;
+    border-radius: 18px;
+    opacity: 0.99;
+    font-size: 14px;
+    line-height: 37px;
+    color: #fff;
+    position: fixed;
+    bottom: 11px;
+    left: 10%;
+    text-align: center;
+}
+
+
+/*修改提示文字的颜色*/
+
+input::-webkit-input-placeholder {
+    /* WebKit browsers */
+    font-size: 14px;
+    color: #acacac;
+    font-family: PingFang-SC-Regular;
+}
+
+input:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    font-size: 14px;
+    color: #acacac;
+    font-family: PingFang-SC-Regular;
+}
+
+input::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    font-size: 14px;
+    color: #acacac;
+    font-family: PingFang-SC-Regular;
+}
+
+input:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    font-size: 14px;
+    color: #acacac;
+    font-family: PingFang-SC-Regular;
+}

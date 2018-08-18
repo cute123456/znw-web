@@ -1,0 +1,188 @@
+.bet {
+    font-family: PingFang-SC-Regular;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    padding: 0 15px;
+    background: #f6f7f9;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.banner {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.battle {
+    width: 100%;
+    height: 93px;
+    background-color: #eeeeee;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.team-one {
+    width: 25%;
+}
+
+.bat-info {
+    width: 50%;
+}
+
+.bat-time {
+    width: 100%;
+    height: 12px;
+    font-size: 12px;
+    line-height: 12px;
+    color: #000000;
+    text-align: center;
+    margin: 31px 0 12px 0;
+}
+
+.bat-reg {
+    width: 100%;
+    height: 12px;
+    font-size: 12px;
+    line-height: 12px;
+    color: #595959;
+    text-align: center;
+}
+
+.team-one img {
+    width: 50px;
+    height: 50px;
+    margin: 7px 0 10px 50%;
+    transform: translate(-50%);
+}
+
+.team-name {
+    width: 100%;
+    height: 12px;
+    font-size: 12px;
+    line-height: 12px;
+    color: #000000;
+    text-align: center;
+}
+
+.bg-img {
+    width: 178px;
+    position: absolute;
+    bottom: 110px;
+    right: 10px;
+}
+
+.article-name {
+    width: 100%;
+    height: 50px;
+    font-size: 15px;
+    line-height: 50px;
+    color: #313131;
+    text-indent: 5px;
+    /* border-bottom: solid 1px #d4d4d4; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.article-name span {
+    display: inline-block;
+    width: calc(100% - 70px);
+    height: 1px;
+    border-bottom: solid 1px #f09d35;
+    margin-top: 25px;
+}
+
+.tip {
+    width: 100%;
+    height: 26px;
+    font-size: 13px;
+    line-height: 26px;
+    color: #000000;
+    text-align: center;
+}
+
+.num {
+    width: 100%;
+    height: 12px;
+    font-size: 12px;
+    line-height: 12px;
+    color: #595959;
+    text-align: center;
+}
+
+.bet-area {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin: 23px 0 33px 0;
+}
+
+.bet-content {
+    width: calc(100%/3 - 9px);
+    height: 100%;
+    background-color: #eeeeee;
+    padding-top: 12px;
+}
+
+.bet-content div {
+    width: 100%;
+    height: 12px;
+    font-size: 12px;
+    line-height: 12px;
+    color: #919191;
+    text-align: center;
+}
+
+.ctrselectColor {
+    background-color: #f09d35;
+    color: #fff;
+}
+
+.ctrselectColor div {
+    color: #fff;
+}
+
+.sure-btn {
+    width: 170px;
+    height: 33px;
+    background-image: linear-gradient(90deg, #ffc40f 0%, #ff9a22 100%);
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 33px;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto 19px auto;
+}
+
+.regular {
+    width: 100%;
+    height: 120px;
+    background-color: #eeeeee;
+    font-size: 12px;
+    padding-top: 15px;
+}
+
+.regular .title {
+    width: 100%;
+    height: 12px;
+    font-size: 12px;
+    line-height: 12px;
+    color: #000000;
+    margin: 0 0 15px 0;
+    text-indent: 13px;
+}
+
+.regular .detail {
+    width: 100%;
+    height: 12px;
+    font-size: 12px;
+    line-height: 15px;
+    color: #000000;
+    margin: 10px 0;
+    /* text-indent: 24px; */
+    padding: 0 10px 0 24px;
+}

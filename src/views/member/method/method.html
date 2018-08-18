@@ -1,0 +1,26 @@
+<div class="method">
+    <div class="list-bg">
+        <yd-infinitescroll :callback="getIntegralLog" ref="infinitescrollDemo">
+            <yd-list theme="1" slot="list">
+                <div class="introduction information">
+                    <div class="introduction_title">
+                        <p></p>
+                        <span>积分明细</span>
+                    </div>
+                    <h2 v-for="log in integralLog">
+                        <div style="width: 80%;">
+                            <div class="way">{{log.description}}</div>
+                            <div class="time">{{timeDeformate(log.updatedAt)}}</div>
+                        </div>
+                        <div v-show="log.inOut==='-'" class="exchange-value-de">{{log.inOut}}{{log.mount}}</div>
+                        <div v-show="log.inOut==='+'" class="exchange-value-in">{{log.inOut}}{{log.mount}}</div>
+                    </h2>
+                </div>
+            </yd-list>
+            <!-- 数据全部加载完毕显示 -->
+            <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">没有数据啦~</span>
+            <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+            <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+        </yd-infinitescroll>
+    </div>
+</div>

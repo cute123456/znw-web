@@ -1,0 +1,69 @@
+.lightmap {
+    font-family: PingFang-SC-Regular;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    /* padding: 0 15px; */
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    /* background-image: url('/static/img/travel/alybg.png');
+    background-repeat: no-repeat;
+    background-origin: fixed;
+    background-position: 95% 80%;
+    background-size: 60% auto; */
+    background-color: #62add3;
+}
+
+.toSelect {
+    position: fixed;
+    left: 10%;
+    /* right: 0; */
+    bottom: 12px;
+    height: 37px;
+    line-height: 37px;
+    background: -webkit-gradient(linear, 0 50%, 100% 50%, from(#ffc310), to(#ff9b22));
+    text-align: center;
+    color: #f6f7f9;
+    width: 80%;
+    border-radius: 20px;
+    z-index: 99;
+}
+
+.hiddenimg {
+    display: none;
+}
+
+#myCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* bottom: 0; */
+    height: 570px;
+    overflow: hidden;
+    z-index: 99;
+}
+
+.toimg {
+    position: fixed;
+    left: 10%;
+    bottom: 57px;
+    height: 37px;
+    line-height: 37px;
+    text-align: center;
+    width: 80%;
+    background-color: #fff;
+    box-shadow: 0px 1.5px 3.5px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 18px;
+    z-index: 99;
+}
+
+.back {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 99999;
+    width: 22px;
+}

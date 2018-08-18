@@ -1,0 +1,26 @@
+<div class="travel">
+
+    <img class="banner" src="/static/img/travel/ly-bg.png" />
+    <div class="article-name">
+        <div style="width: 70px;">旅游资讯</div>
+        <span></span>
+    </div>
+
+    <yd-infinitescroll :callback="getArticleList" ref="infinitescrollDemo">
+        <yd-list theme="1" slot="list">
+            <div class="article-part" v-for="(item,index) in articlelist" :key="index" @click="toDetail(item.id)">
+                <img :src="item.img?(imgUrl+item.img):'/static/img/learn/art1.png'" />
+                <div class="article-content">
+                    <div class="article-title" style="-webkit-box-orient: vertical;">{{item.title}}</div>
+                    <div class="desc" style="-webkit-box-orient: vertical;">{{item.abstract}}</div>
+                    <div class="time">{{item.createdAt?timeDeformate(item.createdAt):''}}</div>
+                </div>
+            </div>
+        </yd-list>
+        <!-- 数据全部加载完毕显示 -->
+        <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">更多旅游资讯敬请期待~</span>
+        <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+        <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+    </yd-infinitescroll>
+
+</div>

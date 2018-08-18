@@ -1,0 +1,92 @@
+.editAD {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #f6f7f9;
+    font-family: PingFang-SC-Regular;
+}
+
+.editAD .content {
+    padding: 16px 18px;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    right: 15px;
+    bottom: 0;
+    color: #232323;
+    background-color: #fff;
+    box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.11);
+    border-radius: 5px;
+}
+
+.editAD .content::-webkit-scrollbar {
+    display: none;
+}
+
+.editAD .content input {
+    height: 40px;
+    color: #acacac;
+    font-size: 14px;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    text-indent: 10px;
+    width: calc(100% - 50px);
+}
+
+.editAD .content .onepart {
+    justify-content: space-between;
+    height: 40px;
+    font-size: 14px;
+    /* padding-top: 3px; */
+    box-sizing: border-box;
+    margin-bottom: 13px;
+}
+
+.editAD .content .rightIcon {
+    color: #737373;
+    font-size: 12px;
+}
+
+.editAD textarea {
+    width: 100%;
+    height: 125px;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    text-indent: 13px;
+    padding: 10px;
+}
+
+.cover {
+    position: absolute;
+    top: 53px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+    background-color: #f7f7f7;
+    z-index: 10
+}
+
+.lable-address {
+    width: 50px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    color: #313131;
+}
+
+.add-button {
+    width: 80%;
+    height: 37px;
+    background-image: linear-gradient(90deg, rgba(255, 196, 15, 0.99) 0%, rgba(255, 156, 33, 0.99) 100%), linear-gradient( rgba(49, 157, 255, 0.99), rgba(49, 157, 255, 0.99));
+    background-blend-mode: normal, normal;
+    border-radius: 18px;
+    opacity: 0.99;
+    font-size: 14px;
+    line-height: 37px;
+    color: #fff;
+    position: fixed;
+    bottom: 11px;
+    left: 10%;
+    text-align: center;
+}

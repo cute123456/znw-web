@@ -1,0 +1,94 @@
+<div class="integral">
+
+    <div class="integral-card">
+        <div class="total-integral">积分总额</div>
+        <div class="toExchange">
+            <div @click="toPage('./method')" class="num-integral">{{memberInfo.integral}}</div>
+            <div class="depart"></div>
+            <div class="change-icon" @click="toPage('./malllist')">
+                <img src="/static/img/member/change-icon.png" alt="">
+                <div class="name">去兑换</div>
+            </div>
+        </div>
+    </div>
+    <div class="tips" @click="toPage('./method')">积分明细</div>
+
+    <div class="list-bg">
+        <div class="introduction information">
+            <div class="introduction_title">
+                <p></p>
+                <span>获取积分</span>
+            </div>
+            <h2 class="more-info" @click="toPage('./sign')">
+                <img class="label-img" src="/static/img/member/qd.png" alt="">
+                <div class="lable-text">
+                    <div class="way">签到</div>
+                    <div class="time">每次签到可获得10积分，连续签到10可获得额外奖励100积分。</div>
+                </div>
+            </h2>
+            <h2 @click="toPage('/welfare/item')">
+                <img class="label-img" src="/static/img/member/fx.png" alt="">
+                <div class="lable-text">
+                    <div class="way">分享</div>
+                    <div class="time">分享公益活动或项目可获得10积分；分享文章可获得5积分。</div>
+                </div>
+            </h2>
+            <h2 @click="toPage('/member/qrcode')">
+                <img class="label-img" src="/static/img/member/yqhy.png" alt="">
+                <div class="lable-text">
+                    <div class="way">邀请好友</div>
+                    <div class="time">邀请好友成功注册可获得30积分。</div>
+                </div>
+            </h2>
+
+            <div class="introduction_title">
+                <p></p>
+                <span>使用积分</span>
+            </div>
+            <h2 class="more-info" @click="toPage('/welfare/item?selectTab=0')">
+                <img class="label-img" src="/static/img/member/hd.png" alt="">
+                <div class="lable-text">
+                    <div class="way">活动</div>
+                    <div class="time">参加需要使用积分的活动，可以直接消耗积分。</div>
+                </div>
+            </h2>
+
+            <h2 @click="toPage('/welfare/item?selectTab=1')">
+                <img class="label-img" src="/static/img/member/zljl.png" alt="">
+                <div class="lable-text">
+                    <div class="way">助力</div>
+                    <div class="time">可通过积分抵现金的方式进行助力。</div>
+                </div>
+            </h2>
+            <!-- <h2>
+                <img class="label-img" src="/static/img/member/jfsc.png" alt="">
+                <div class="lable-text">
+                    <div class="way">积分商城</div>
+                    <div class="time">可在积分商城兑换各种礼品。</div>
+                </div>
+            </h2> -->
+            <h2 @click="showCode(true)">
+                <img class="label-img" src="/static/img/member/ckb.png" alt="">
+                <div class="lable-text">
+                    <div class="way">创客币</div>
+                    <div class="time">可通过线下工作人员，兑换实体创客币。</div>
+                </div>
+            </h2>
+        </div>
+        <div class="more">更多使用获得方法尽请期待</div>
+        <!--  二维码弹框    -->
+        <div v-if="willShow==true" class="selectChange">
+            <div class="bomb-box">
+                <div class="bomb-title">
+
+                    <span></span>
+
+                    <span>我的二维码</span>
+                    <p @click="showCode(false)"></p>
+                </div>
+                <img :src="myCode" alt="">
+
+            </div>
+        </div>
+    </div>
+</div>

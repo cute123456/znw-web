@@ -1,0 +1,27 @@
+<footer class="footerbar">
+
+    <div @click="$router.push('/')" class="flex text-center">
+        <span class="footItem" v-bind:class="{'home-actived':check==1,'home':check!=1}">
+            首页
+        </span>
+    </div>
+
+    <div @click="$router.push('/welfare')" class="flex text-center">
+        <span class="footItem" v-bind:class="{'welfare-actived':check==2,'welfare':check!=2}" style="position:relative;">
+            公益
+        </span>
+    </div>
+
+    <!-- <div @click="$router.push('/shop')" class="flex text-center">
+        <span class="footItem" v-bind:class="{'shop2':check==3,'shop1':check!=3}" style="position:relative;">
+            商城
+        </span>
+    </div> -->
+
+    <div @click="$router.push('/member')" class="flex text-center">
+        <span class="footItem" v-bind:class="{'member-actived':check==4,'member':check!=4}">
+            <!-- 我的 -->
+            成长中心
+        </span>
+    </div>
+</footer>

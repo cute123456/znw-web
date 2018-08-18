@@ -1,0 +1,111 @@
+<div class="settlement">
+    <div class="content">
+        <!-- 选择地址 -->
+        <div style="width:94%;margin:auto;padding:10px 0;">
+            <div class="address" @click="$router.push('/my/addAddress')" v-if="!addressList[0]" style="display: block;">
+                <span style="display: table-cell;padding-right: 10px;font-size: 18px;vertical-align: middle;">
+                        <icon-svg icon-class="ditu" class="aliIcon" style="width:22px;height:22px;"></icon-svg>
+                    </span>
+                <div class="address-middle">
+                    <p class="address-middle noAddress">
+                        <span class="flex" style="line-height:30px;color:#232323;font-size:14px;">暂无默认收货地址！</span>
+                        <yd-button type="warning" class="flex" style="flex:0 0 70px;">设置地址</yd-button>
+                    </p>
+                </div>
+            </div>
+            <a @click="goSelectAddress()" v-if="addressList[0]" class="address flexd">
+                <span style="flex: 0 0 24px;padding-right:10px;" class="text-center">
+                        <icon-svg icon-class="ditu" class="aliIcon"></icon-svg>
+                    </span>
+                <div class="addressCon">
+                    <div class="flexd" style="padding-bottom:8px;">
+                        <span class="flex text-left" style="font-size:15px;color:#232323;">收货人:{{addressList[0].consignee}}</span>
+                        <span class="flex text-right" style="font-size:12px;color:#727272;">{{addressList[0].reap_mobile}}</span>
+                    </div>
+                    <div class="text-twowrap" style="font-size:14px;color:#232323;">收货地址：{{addressList[0].reap_province}}{{addressList[0].reap_city}}{{addressList[0].reap_county}}{{addressList[0].detail_address}}</div>
+                </div>
+                <span class="text-right" style="flex: 0 0 24px;padding-left:10px;">
+                        <icon-svg icon-class="you" class="aliIcon"></icon-svg>
+                    </span>
+            </a>
+        </div>
+
+
+        <!-- 虚线 -->
+        <div class="dashed"></div>
+
+
+        <div class="product">
+
+            <!-- 商品信息 -->
+            <div class="product1" v-for="shop in orderDatas">
+                <div style="border-bottom:solid .5px #bbbbbb;margin-bottom:10px; padding-bottom:10px;">
+                    <div style="display:flex;align-items:center;">
+                        <icon-svg icon-class="dianpu" class="aliIcon"></icon-svg>
+                        <span style="color:#232323;font-size:15px;font-weight:500;margin-left:6px;">{{shop.business.b_name}}</span>
+                    </div>
+                    <div v-if="method.join(',').indexOf(1, 0) != -1" style="font-size:14px;padding-top:10px;">
+                        商家地址：{{shop.business.b_province}}{{shop.business.b_city}}{{shop.business.b_county}}{{shop.business.b_detail_address}}
+                    </div>
+                </div>
+
+
+                <div style="display:flex;margin-bottom:8px;" v-for="orderGoods in shop.business.order_goods">
+
+                    <div class="product2">
+                        <img :src="HTTP + orderGoods.goods.g_pic">
+                    </div>
+                    <div class="productMes">
+                        <div class="name text-twowrap">{{orderGoods.goods.g_name}}</div>
+                        <div class="guige">
+                            <span v-for="style in orderGoods.goods.order_goods_style" style="display:inline-block;padding-right:10px;">{{style.ty_name}}:{{style.ty_style}}&nbsp;</span>
+                        </div>
+                        <div class="red" style="font-weight:500;">
+                            <span style="font-size:13px;">￥</span><span style="font-size:15px;">{{orderGoods.og_price}}</span>
+                        </div>
+                        <div v-if="orderGoods.goods.g_isknock == 1" style="font-size:12px;color:#909090;">
+                            <span>服务方式:</span>
+                            <span>到店</span>
+                        </div>
+                        <div v-if="orderGoods.goods.g_isexpress == 1" style="font-size:12px;color:#909090;">
+                            <span>服务方式:</span>
+                            <span>快递</span>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;">
+                            <!-- <div class="red" style="font-weight:500;" v-if="orderGoods.is_join_yigoods == 1">
+                                <img src="~@/public/img/home/豆子.png" style="width:12px;height:12px;">
+                                <span style="font-size:12px;">易豆数</span>
+                                <span style="font-size:12px;">{{Math.ceil(orderGoods.og_price *  orderGoods.goods.g_yratio)}}</span>
+                            </div> -->
+                            <div class="flex text-right" style="color:#909090;font-size:15px;">x{{orderGoods.og_count}}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-right" style="padding:6px;border-top:solid .5px #d9d9d9;font-size:15px;">
+                    合计：{{parseFloat(shop.o_price) + parseFloat(shop.o_freight)}}
+                    <span style="font-size:12px;" v-if="joinFlag">/ 易豆数 {{Math.ceil(shop.o_yprice) + Math.ceil(shop.o_yratio * shop.o_freight)}}</span>
+                    <span style="font-size:13px;" v-if="shop.o_freight > 0">(含运费：{{shop.o_freight}})</span>
+                </div>
+
+            </div>
+
+            <div class="list" style="margin:0 20px;justify-content: space-between;border-bottom:.5px solid #d9d9d9;">
+                <span class="title" style="flex:0 0 80px;">买家留言:</span>
+                <input type="text flex text-right" v-model="message" class="num" placeholder="有什么想对卖家说的吗？" style="text-align:right">
+            </div>
+            <div style="height:30px;"></div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer">
+        <div class="footer1 text-right">
+
+            <p class="red" style="font-weight:500;">
+                <span style="color:#232323;font-size:16px;">合计：</span>
+                <span style="font-size:14px;">￥</span><span style="font-size:16px;">{{totalMoney}} </span><span style="font-size:12px;" v-if="joinFlag"> / 易豆数{{totalYmoney}}</span></p>
+        </div>
+        <div class="footer2 text-center" @click="goPay()" style="line-height: 50px;">提交订单</div>
+    </div>
+</div>

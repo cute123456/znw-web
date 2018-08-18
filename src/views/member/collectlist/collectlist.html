@@ -1,0 +1,68 @@
+<div style="background: #f09d35;width: 100%;height: 100%;">
+    <div class="gongyi-item">
+        <div class="item-box" v-on:click.stop="changType(0)">
+            <p :class="type===0?'selectTab':''">活动</p>
+        </div>
+        <div class="item-box" v-on:click.stop="changType(1)">
+            <p :class="type===1?'selectTab':''">文章</p>
+        </div>
+    </div>
+    <div v-if="type===0" class="collectlist">
+        <yd-infinitescroll :callback="getCollectList" ref="infinitescrollDemo">
+            <yd-list theme="1" slot="list">
+                <div class="project-list" v-for="(obj,index) in collectList" :key="obj.id">
+                    <img @click="toDetail(obj.activity.id)" class="active-img" :src="obj.activity.img?imgUrl+obj.activity.img:'/static/img/welfare/gong_item_08.png'" alt="">
+                    <div @click="toDetail(obj.activity.id)" class="active-title" style="-webkit-box-orient: vertical;">{{obj.activity.title?obj.activity.title:'加载中'}}</div>
+                    <div @click="toDetail(obj.activity.id)" class="active-time">
+                        <img class="active-time-img" src="/static/img/member/active-time.png" alt="">
+                        <div class="active-period">{{obj.createdAt?timeDeformate(obj.createdAt):'加载中'}}</div>
+                    </div>
+                    <div class="cancle-button" @click="Uncollect(obj)">取消收藏</div>
+                </div>
+            </yd-list>
+            <!-- 数据全部加载完毕显示 -->
+            <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">更多收藏内容快去添加吧~</span>
+            <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+            <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+        </yd-infinitescroll>
+        <div v-if="pageSize<=0">
+            <div class="no_data flexd">
+                <div class="imgBox">
+                    <img src="/static/img/welfare/nolist.png" alt="加载中">
+                </div>
+                <p style="color:#737373;margin:8px 0;font-size:14px;">您还没有收藏活动</p>
+                <p style="color:#737373;margin:8px 0;font-size:14px;">快去看看吧~</p>
+            </div>
+        </div>
+    </div>
+    <div v-if="type===1" class="collectlist artivlelist">
+        <yd-infinitescroll :callback="getList" ref="infinitescrollDemos">
+            <yd-list theme="1" slot="list">
+                <div class="article-part" v-for="(item,index) in featuredlist" :key="index">
+                    <img @click="toArticleDetail(item)" :src="item.img?(imgUrl+item.img):'/static/img/learn/art1.png'" />
+                    <div class="article-content">
+                        <div @click="toArticleDetail(item)" class="article-title" style="-webkit-box-orient: vertical;">{{item.article.title?item.article.title:'加载中'}}</div>
+                        <!-- <div class="desc" style="-webkit-box-orient: vertical;">{{item.abstract}}</div> -->
+                        <!-- <div class="time">{{item.createdAt?timeDeformate(item.createdAt):''}}</div> -->
+                        <div style="margin-left: calc(100% - 90px);" class="cancle-button" @click="UncollectArticle(item)">取消收藏</div>
+                    </div>
+                </div>
+            </yd-list>
+            <!-- 数据全部加载完毕显示 -->
+            <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">更多收藏内容快去添加吧~</span>
+            <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+            <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+        </yd-infinitescroll>
+        <div v-if="pageSize<=0">
+            <div class="no_data flexd">
+                <div class="imgBox">
+                    <img src="/static/img/welfare/nolist.png" alt="加载中">
+                </div>
+                <p style="color:#737373;margin:8px 0;font-size:14px;">您还没有收藏文章</p>
+                <p style="color:#737373;margin:8px 0;font-size:14px;">快去看看吧~</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>

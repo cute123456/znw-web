@@ -1,0 +1,112 @@
+footer.footerbar {
+    height: 54px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background-color: #f6f6f6;
+    border-top: 1px solid #e7e7e7;
+    /*只有头部阴影*/
+}
+
+footer.footerbar .footItem {
+    float: left;
+    /* width: 25%; */
+    width: 33.3%;
+    height: 54px;
+    line-height: 76px;
+    background-repeat: no-repeat;
+    background-position: center 2px;
+    background-size: 24px 24px;
+    overflow: hidden;
+    font-size: 14px;
+    margin-top: 4px;
+    color: #929292;
+    padding-right: 4px;
+}
+
+.home {
+    background-image: url("./img/home.png");
+    color: #929292;
+}
+
+footer.footerbar .home-actived {
+    background-image: url("./img/home-actived.png");
+    color: #382823;
+}
+
+.shop1 {
+    color: #929292;
+    background-image: url("./img/shop1.png");
+}
+
+footer.footerbar .shop2 {
+    background-image: url("./img/shop2.png");
+    color: #382823;
+}
+
+.realChange1 {
+    color: #929292;
+    background-image: url("./img/realChange1.png");
+}
+
+footer.footerbar .realChange2 {
+    background-image: url("./img/realChange2.png");
+    color: #382823;
+}
+
+.welfare {
+    color: #929292;
+    background-image: url("./img/welfare.png");
+}
+
+footer.footerbar .welfare-actived {
+    background-image: url("./img/welfare-actived.png");
+    color: #382823;
+}
+
+.member {
+    background-image: url("./img/member.png");
+    color: #929292;
+    background-size: 100%;
+}
+
+footer.footerbar .member-actived {
+    background-image: url("./img/member-actived.png");
+    color: #382823;
+    background-size: 24px 24px;
+}
+
+a,
+a:visited,
+a:hover {
+    color: #929292;
+}
+
+.change {
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    margin-left: -27px;
+    background: #f6f6f6;
+    border-radius: 50%;
+    z-index: -1;
+    border-top: solid 1px #ddd;
+    /* box-shadow: 0 -1px 1px #e7e7e7;  */
+    /*只有头部阴影*/
+}
+
+.change img {
+    max-width: 36px;
+    display: block;
+    border: 0;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+footer.footerbar .red {
+    color: #382823;
+}

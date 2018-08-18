@@ -1,0 +1,89 @@
+<div class="home">
+    <!-- <div class="record" v-for="item in record" :key="item.id">
+        <p>{{item.value}}</p>
+    </div> -->
+    <!-- 公益 -->
+    <div class="gongyi">
+        <div class="gongyi-item">
+
+            <div class="item-box" @click="changType(0)">
+                <p :class="type===0?'selectTab':''">活动</p>
+            </div>
+            <div class="item-box" @click="changType(1)">
+                <p :class="type===1?'selectTab':''">项目</p>
+            </div>
+        </div>
+
+
+        <!-- content -->
+        <!-- 活动列表 -->
+        <div v-if="type===0&&!isShowActive" class="border-margin">
+            <yd-infinitescroll :callback="loadMore" ref="infinitescrollDemo">
+                <yd-list theme="1" slot="list">
+                    <div class="active-item" v-for="(item, index) in listOne" :key="index" @click="toPage(item.activity.id)">
+                        <img class="active-img" :src="imgUrl + item.activity.img" alt="">
+                        <div>
+                            <div class="active-title">{{item.activity.title}}</div>
+                            <div class="active-time">
+                                <img class="active-time-img" src="/static/img/member/active-time.png" alt="">
+                                <div class="active-period">{{item.updatedAt}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </yd-list>
+
+                <!-- 数据全部加载完毕显示 -->
+                <span slot="doneTip">没有更多了~~</span>
+
+                <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+                <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+
+            </yd-infinitescroll>
+        </div>
+        <div v-if="type===0&&isShowActive" class="border-margin">
+            <img class="nocontent-img" src="/static/img/member/no_active.png" alt="">
+            <div class="mind-text">您还没有参加过公益活动快去参加吧！</div>
+        </div>
+        <!-- 项目列表 -->
+        <div v-if="type===1&&!isShowProject" class="border-margin">
+            <!-- <div class="active-item" v-for="(item, index) in lists" :key="item.id" @click="toPage(item.id)">
+                <img class="active-img" :src="imgUrl + item.img" alt="">
+                <div>
+                    <div class="active-title">{{item.title}}</div>
+                    <div class="active-time">
+                        <img class="active-time-img" src="/static/img/member/active-time.png" alt="">
+                        <div class="active-period">{{item.updatedAt}}</div>
+                    </div>
+                </div>
+            </div> -->
+            <yd-infinitescroll :callback="loadMore" ref="infinitescrollDemo">
+                <yd-list theme="1" slot="list">
+                    <div class="active-item" v-for="(item, index) in listTwo" :key="index" @click="toPage(item.id)">
+                        <img class="active-img" :src="imgUrl + item.img" alt="">
+                        <div>
+                            <div class="active-title">{{item.title}}</div>
+                            <div class="active-title">捐助{{item.donationIntegral}}积分</div>
+                            <div class="active-time">
+                                <img class="active-time-img" src="/static/img/member/active-time.png" alt="">
+                                <div class="active-period">{{item.updatedAt}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </yd-list>
+
+                <!-- 数据全部加载完毕显示 -->
+                <span slot="doneTip">没有更多了~~</span>
+
+                <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+                <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+
+            </yd-infinitescroll>
+        </div>
+        <div v-if="type===1&&isShowProject" class="border-margin">
+            <img class="nocontent-img" src="/static/img/member/no_project.png" alt="">
+            <div class="mind-text">您还没有参加过公益项目快去参加吧!</div>
+        </div>
+    </div>
+    <!-- 底部tab栏 -->
+    <!-- <fixBottom :check=4></fixBottom> -->
+</div>

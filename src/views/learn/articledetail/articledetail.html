@@ -1,0 +1,38 @@
+<div class="articledetail">
+    <div class="article">
+        <div class="title">{{article.title?article.title:"加载中"}}</div>
+        <!-- <img src="/static/img/learn/detailimg.jpg" /> -->
+        <img :src="article.detailImg?(imgUrl+article.detailImg):'/static/img/learn/detailimg.jpg'" />
+        <div class="content" v-html="article.content"></div>
+
+        <div class="line"></div>
+        <div class="somebun">
+            <div class="shareimg">
+                <img @click="shareBtn" src="/static/img/welfare/item_detail_15.png">
+                <div class="sharename">分享</div>
+            </div>
+            <div class="shareimg">
+                <img style="margin: 0 20px;" v-show="isCollect" @click="toCollect(article)" src="/static/img/welfare/collected.png">
+                <img style="margin: 0 20px;" v-show="!isCollect" @click="toCollect(article)" src="/static/img/welfare/nocollect.png">
+                <div class="sharename" style="margin: 6px 20px 0 20px;">收藏</div>
+            </div>
+        </div>
+        <div class="learned" @click="goMoreArticle(article.moduleId)">
+            <img class="book" src="/static/img/learn/book.png">
+            <div class="name">往期文章</div>
+            <img class="head-right" src="/static/img/member/right.png" alt="">
+        </div>
+
+
+        <div class="sanjiao"></div>
+    </div>
+    <div class="share" v-show="shareImg" @click="shareBtn">
+        <img src="~@/public/img/share.png" alt="" srcset="">
+        <div class="share-tip">
+            <div>点击右上角分享给好友即可获得积分奖励</div>
+            <div class="know">
+                <span>我知道了</span>
+            </div>
+        </div>
+    </div>
+</div>

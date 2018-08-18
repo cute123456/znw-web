@@ -1,0 +1,48 @@
+<div class="bet">
+
+    <img class="banner" :src="imgUrl+bet.image" />
+    <div class="battle">
+        <div class="team-one">
+            <img :src="imgUrl+bet.teamAIcon" />
+            <div class="team-name">{{bet.teamA}}</div>
+        </div>
+        <div class="bat-info">
+            <div class="bat-time">{{bet.kickOffTime}}开赛</div>
+            <div class="bat-reg">{{bet.turn}}</div>
+        </div>
+        <div class="team-one">
+            <img :src="imgUrl+bet.teamBIcon" />
+            <div class="team-name">{{bet.teamB}}</div>
+        </div>
+    </div>
+
+    <div class="article-name">
+        <div style="width: 70px;">有奖竞猜</div>
+        <span></span>
+    </div>
+
+    <!-- <div class="tip">竞猜结果是</div> -->
+    <div class="num">{{bet.enlistNum}}人参与</div>
+
+    <div class="bet-area">
+        <div :class="selectvalue===index?'ctrselectColor':''" class="bet-content" @click="changValue(index,option.id)" v-for = "(option,index) in bet.option" :key="index">
+            <div>{{option.title}}</div>
+            <div>{{option.rate}}</div>
+        </div>
+        <!-- <div :class="selectvalue===2?'ctrselectColor':''" class="bet-content" @click="changValue(2)">
+            <div>平局</div>
+            <div>10%</div>
+        </div>
+        <div :class="selectvalue===3?'ctrselectColor':''" class="bet-content" @click="changValue(3)">
+            <div>马德里胜</div>
+            <div>50%</div>
+        </div> -->
+    </div>
+    <div class="sure-btn" @click = "confirmBet()">确认竞猜</div>
+    <div class="regular">
+        <div class="title">竞猜规则</div>
+        <div class="detail" v-html = "bet.rule"></div>
+        <!-- <div class="detail">2、比赛开始前4个小时竞猜通道关闭。</div>
+        <div class="detail">3、比赛出结果并且成功竞猜后，次日12：00前积分到账。</div> -->
+    </div>
+</div>

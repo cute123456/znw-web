@@ -1,0 +1,369 @@
+.item-list {
+    width: 100%;
+    background: #f6f7f9;
+    font-size: 24px;
+}
+
+.project-list {
+    position: absolute;
+    top: 58px;
+    bottom: 58px;
+    left: 4%;
+    right: 4%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.gong-item {
+    margin-bottom: 30px;
+}
+
+.gongyi-item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+.gongyi-item .item-box {
+    width: 50%;
+    background: #fff;
+    padding-top: 10px;
+}
+
+.item-box p {
+    font-size: 16px;
+    color: #b9b9b9;
+    margin: 0 auto;
+    width: 80px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.selectTab {
+    color: #282828 !important;
+    border-bottom: 3px solid #ef7c1b !important;
+}
+
+
+/* 公益 */
+
+.item-list .gongyi {
+    padding-top: 8px;
+    width: 92%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 50px;
+}
+
+.item-list .gong-title {
+    margin-left: 14px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.gong-title p {
+    width: 3px;
+    background-color: #ef7c1b;
+    height: 18px;
+    border-radius: 30%;
+    margin-top: 4px;
+}
+
+.gong-title span {
+    font-size: 16px;
+    margin-left: 6px;
+    font-weight: 800;
+}
+
+.gongyi .gong-list {
+    /* height: 287px; */
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.gongyi .list-box {
+    display: flex;
+    margin-top: 6px;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 14px;
+}
+
+.list-box h1 {
+    font-weight: normal;
+    color: #989898;
+    font-size: 6px;
+}
+
+.list-box p {
+    color: #414141;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 10%;
+    text-align: left;
+    padding-top: 4px;
+}
+
+.gong-list .list-mess {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 14px;
+    margin-bottom: 6px;
+}
+
+.list-mess .sj-bor {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-around !important;
+}
+
+
+/* .list-mess .sj {
+    width: 32%;
+} */
+
+.list-mess .sj-sec {
+    margin-right: 54px;
+}
+
+.sj-bor p {
+    width: 1px;
+    height: 20px;
+    margin-bottom: 6px;
+    background: #c7c7c7;
+}
+
+.list-mess .sj-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.sj-list h1 {
+    font-weight: normal;
+    font-size: 14px;
+    color: #ff6161;
+}
+
+.list-mess .sj-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.list-mess span {
+    font-size: 12px;
+    margin-bottom: 4px;
+    color: #989898;
+    letter-spacing: 1px;
+}
+
+.sj img {
+    width: 18px;
+}
+
+.gong-list .list-mid {
+    margin: 0;
+    width: 100%;
+    display: block;
+    /* height: 167px; */
+    background-color: #d4d4d4;
+    border-radius: 5px 5px 0px 0px;
+}
+
+
+/* -----------------增加------------------ */
+
+.item-lable {
+    width: 33px;
+    height: 65px;
+    font-family: AdobeHeitiStd-Regular;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 15px;
+    color: #fff;
+    padding: 10px 0 0 13px;
+}
+
+.empty-space {
+    width: calc(100% - 46px);
+}
+
+.item-lable-right {
+    width: 33px;
+    height: 65px;
+    font-family: AdobeHeitiStd-Regular;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 15px;
+    color: #fff;
+    padding: 10px 13px 0 0;
+}
+
+.list-title {
+    width: 100%;
+    height: 15px;
+    font-family: PingFang-SC-Medium;
+    font-size: 14px;
+    line-height: 15px;
+    color: #414141;
+    margin-top: 15px;
+    text-indent: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    -webkit-line-clamp: 1;
+}
+
+.list-introduce {
+    width: 100%;
+    height: 12px;
+    font-family: PingFang-SC-Regular;
+    font-size: 12px;
+    line-height: 12px;
+    color: #585858;
+    margin-top: 7px;
+    text-indent: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    -webkit-line-clamp: 1;
+}
+
+.yd-progressbar>svg {
+    border-radius: 3px;
+}
+
+.apply-num {
+    width: 90%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    font-family: PingFang-SC-Regular;
+    margin: 30px auto 0 auto;
+}
+
+.join-num {
+    width: calc(100%/3);
+}
+
+.join-num .num {
+    height: 15px;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 15px;
+    /* color: #060606; */
+    color: #f49230;
+}
+
+.join-num .lable {
+    height: 15px;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 15px;
+    color: #989898;
+}
+
+.lowheight {
+    /* height: 270px!important; */
+}
+
+.gong-list .jindu {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.jindu h1 {
+    text-align: left;
+    color: #ef7c1b;
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 10px;
+}
+
+.jindu p {
+    color: #2c2c2c;
+    float: right;
+    font-size: 14px;
+}
+
+.jindu-box .jin-list {
+    width: 100%;
+    float: left;
+    text-align: center;
+    line-height: 15px;
+}
+
+.arrowIcon {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+
+/* ------------上面下拉选择----------- */
+
+.yd-accordion {
+    background-color: #fff;
+    display: flex;
+    height: 44px;
+    border-bottom: solid 1px #e2e2e2;
+    /* justify-content: space-between; */
+}
+
+.item-list .yd-accordion-title span {
+    font-family: PingFang-SC-Regular;
+    font-size: 13px;
+    line-height: 44px;
+    color: #b9b9b9;
+}
+
+.changeItem {
+    width: 50%;
+}
+
+.nochange {
+    width: 50%;
+}
+
+.no_data {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-top: 120px;
+}
+
+.imgBox {
+    width: 80px;
+    height: auto;
+    overflow: hidden;
+}
+
+.imgBox img {
+    width: 100%;
+}

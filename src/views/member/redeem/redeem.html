@@ -1,0 +1,91 @@
+<div class="home">
+    <!-- 兑换创客币 -->
+    <div class="exchange">
+        <div class="gongyi-item">
+            <div class="item-box" @click="changType(0)">
+                <p :class="type===0?'selectTab':''">兑换创客币</p>
+            </div>
+            <!-- <div class="item-box" @click="changType(1)">
+                <p :class="type===1?'selectTab':''">赠送积分</p>
+            </div> -->
+            <div class="item-box" @click="changType(2)">
+                <p :class="type===2?'selectTab':''">兑换积分</p>
+            </div>
+        </div>
+        <div v-if="type===0">
+            <div class="head-box">
+                <img class="head-img" :src="thumb ? HSrc(thumb):'/static/img/member/reddem-icon.png'" alt="">
+                <p>{{nickname?nickname:'昵称加载中'}}</p>
+            </div>
+            <div class="item-intro">
+
+                <div class="intro-c">
+                    <h2>
+                        <img src="/static/img/member/reddem-icon.png">
+                        <input type="number" v-model="quentity" placeholder="输入要兑换的数量"> </h2>
+                    <h2>
+                        <h3></h3>
+                        <p>所需
+                            <span>{{total}}</span> 积分</p>
+                    </h2>
+                </div>
+                <div class="change-object">
+                    <p></p>
+                    <span>兑换说明</span>
+                </div>
+                <div class="integral">
+                    <p>1、积分兑换比例为
+                        <span>100：1</span>。</p>
+
+                </div>
+            </div>
+            <div class="change-button" @click="toExchange">确认兑换</div>
+        </div>
+
+        <div v-if="type===1">
+            <div class="head-box">
+                <img class="head-img" :src="thumb ? HSrc(thumb):'/static/img/member/reddem-icon.png'" alt="">
+                <p>{{nickname?nickname:'昵称加载中'}}</p>
+            </div>
+            <div class="item-intro">
+                <div class="intro-c">
+                    <h2>
+                        <img src="/static/img/member/jzicon.png" alt="">
+                        <input type="number" v-model="donate" placeholder="输入要赠送的数量"> </h2>
+
+                </div>
+            </div>
+            <div class="change-button" @click="toDonate">确认赠送</div>
+        </div>
+        <div v-if="type===2">
+            <div class="head-box">
+                <img class="head-img" :src="thumb ? HSrc(thumb):'/static/img/member/reddem-icon.png'" alt="">
+                <p>{{nickname?nickname:'昵称加载中'}}</p>
+            </div>
+            <div class="item-intro">
+
+                <div class="intro-c">
+                    <h2>
+                        <img src="/static/img/member/reddem-icon.png">
+                        <input type="number" v-model="ckbcount" placeholder="输入要兑换的创客币数量"> </h2>
+                    <h2>
+                        <h3></h3>
+                        <p>可获得
+                            <span>{{ckbtotal}}</span> 积分</p>
+                    </h2>
+                </div>
+                <div class="change-object">
+                    <p></p>
+                    <span>兑换说明</span>
+                </div>
+                <div class="integral">
+                    <p>1、积分兑换比例为
+                        <span>100：1</span>。</p>
+
+                </div>
+            </div>
+            <div class="change-button" @click="toChangeBack">确认兑换</div>
+        </div>
+    </div>
+
+</div>

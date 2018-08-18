@@ -1,0 +1,73 @@
+.appoint {
+    background: none;
+    border: none;
+    color: #fff;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    width: 88%;
+    letter-spacing: 2px;
+    background: -webkit-gradient(linear, 0 50%, 100% 50%, from(#ffc310), to(#ff9b22));
+    border-radius: 37px;
+    font-size: 16px;
+    margin: 34px auto;
+}
+
+.opinion {
+    width: 100%;
+    background: #f6f7f9;
+    overflow: hidden;
+}
+
+.opinion .opinion-box {
+    width: 92%;
+    height: 40vh;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 6px;
+    position: relative;
+    top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .05);
+}
+
+.opinion-box .opinion-item {
+    align-self: flex-end;
+}
+
+.opinion-box img {
+    width: 44%;
+    padding-top: 20px;
+}
+
+.opinion-box h2 {
+    font-size: 16px;
+    letter-spacing: 1px;
+    padding: 12px 20px;
+    color: #acacac;
+    font-weight: normal;
+}
+
+.opinion-box span {
+    font-size: 14px;
+    color: #ff9c21;
+    font-weight: normal;
+}
+
+.suggest {
+    width: 100%;
+    height: 250px;
+    border: none;
+    padding: 20px;
+}
+
+textarea::-webkit-input-placeholder {
+    color: #acacac;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: normal;
+    /* font-family: 'Avenir', Helvetica, Arial, sans-serif; */
+}

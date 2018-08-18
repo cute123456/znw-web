@@ -1,0 +1,452 @@
+.aliIcon {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+.list-banner {
+    position: absolute;
+    /* top: 45px; */
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    height: 150px;
+    background: url(../../public/img/bg_01.png) repeat-x center;
+}
+
+.list-bg {
+    position: relative;
+    top: 8px;
+    margin: 0 15px;
+    z-index: 2;
+}
+
+.title-bar {
+    height: 45px;
+    line-height: 45px;
+    background: #fff;
+    text-align: center;
+    font-size: 16px;
+}
+
+.title-bar .back {
+    float: left;
+    margin-left: 10px;
+}
+
+.back .aliIcon {
+    width: 26px;
+    height: 26px;
+}
+
+.flex {
+    flex: 1;
+}
+
+img,
+div,
+body,
+html,
+ul,
+li,
+a {
+    -webkit-touch-callout: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    border: none;
+    vertical-align: middle;
+}
+
+input,
+select {
+    vertical-align: middle;
+    outline: none;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-nowrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.text-twowrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+    zoom: 1;
+}
+
+
+/* 头部 */
+
+
+/* .header {
+position: fixed;
+top: 0px;
+width: 100%;
+background-color: #fff;
+border-bottom: 1px solid #ddd;
+height: 45px;
+line-height: 45px;
+z-index: 10;
+} */
+
+
+/* .header .back {
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+    padding-left: 10px;
+} */
+
+
+/* .header .back i {
+    width: 10px;
+    height: 10px;
+    border: 2px solid #047dcb;
+    display: inline-block;
+    transform: rotate(45deg);
+    border-top: none;
+    border-right: none;
+} */
+
+.header .back span {
+    color: #047dcb;
+    font-size: 16px;
+}
+
+.header .title {
+    display: block;
+    font-size: 17px;
+    margin: 0 auto;
+}
+
+.header .subTitle {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    padding: 0 15px;
+    font-size: 17px;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+for fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+button,
+input,
+select,
+textarea {
+    font: 12px/1.5 tahoma, arial, \5b8b\4f53;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+}
+
+address,
+cite,
+dfn,
+em,
+var {
+    font-style: normal;
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: courier new, courier, monospace;
+}
+
+small {
+    font-size: 12px;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+sup {
+    vertical-align: text-top;
+}
+
+sub {
+    vertical-align: text-bottom;
+}
+
+legend {
+    color: #000;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* 增加 */
+
+.aliIcon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+.flex {
+    flex: 1;
+}
+
+.red {
+    color: #af0203;
+}
+
+.flexd {
+    display: flex;
+    align-items: center;
+}
+
+img,
+div,
+body,
+html,
+ul,
+li,
+a {
+    -webkit-touch-callout: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    border: none;
+    vertical-align: middle;
+}
+
+input,
+select {
+    vertical-align: middle;
+    outline: none;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-nowrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.text-twowrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+    zoom: 1;
+}
+
+button,
+input,
+select,
+textarea {
+    border: none;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+
+/* -------------item页面------------------- */
+
+.item-list .yd-accordion-title span {
+    font-family: PingFang-SC-Regular;
+    font-size: 14px;
+    line-height: 44px;
+    color: #b9b9b9;
+}
+
+.item-list .yd-accordion-head {
+    height: 44px;
+    /* width: 36%;
+    margin-left: 32%; */
+    width: 48%;
+    margin-left: 26%;
+}
+
+.item-list .yd-accordion-head:after {
+    border: none;
+}
+
+.item-list .yd-accordion-content {
+    z-index: 2;
+    background: #fff;
+    /* width: 200%; */
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.item-list .yd-accordion-head-content {
+    width: 145px;
+}
+
+.item-list .vux-no-group-title {
+    margin: 0;
+}
+
+.item-list .weui-cells_radio .weui-check:checked+.weui-icon-checked:before {
+    color: #ef7c1b;
+}
+
+.item-list .yd-accordion-head>i:after {
+    border-bottom: 7px solid #b9b9b9;
+}
+
+.item-list .changeItem .yd-accordion-head>i:after {
+    border-bottom: 7px solid #ef7c1b;
+}
+
+.item-list .changeItem .yd-accordion-title span {
+    color: #ef7c1b;
+}
+
+.item-list .vux-radio-label {
+    vertical-align: middle;
+    font-size: 12px;
+}
+
+.item-list .ctrColor .weui-cell:first-child .vux-radio-label {
+    color: #ef7c1b!important;
+}

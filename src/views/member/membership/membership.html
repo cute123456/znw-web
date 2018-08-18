@@ -1,0 +1,77 @@
+<div class="membership">
+    <div class="membership-top">
+        <div class="membership-tou">
+            <h1>头像</h1>
+            <img class="head-img" :src="memberInfo.headimgurl?HSrc(memberInfo.headimgurl):'/static/img/member/mum_tx.png'" alt="">
+            <label style="position: absolute;top: 6px;right: 26px;width: 70px;height: 70px;">
+                <input name="memberInfo.headimgurl" @change="fileChange" type="file" accept="image/*" style="display:none;">
+            </label>
+        </div>
+        <!-- <div class="membership-list">
+            <h1>昵称</h1>
+            <h2>{{memberInfo.nickname}}</h2>
+        </div> -->
+        <div class="membership-list-two">
+            <div class="lable-one">昵称</div>
+            <!-- <div class="sub-lable">{{memberInfo.nickname?memberInfo.nickname:'暂无'}}</div> -->
+            <input class="sub-lable" type="text" v-model="memberInfo.nickname" />
+            <img class="head-right" src="/static/img/member/right.png" alt="">
+        </div>
+        <!-- <div class="membership-list">
+            <h1>等级</h1>
+            <h2>{{memberInfo.level?memberInfo.level:'Lv1'}}</h2>
+        </div> -->
+        <div class="membership-list-two">
+            <div class="lable-one">姓名</div>
+            <!-- <div @click="toChangename(memberInfo.realname)" class="sub-lable">{{memberInfo.realname?memberInfo.realname:'暂无'}}</div> -->
+            <input class="sub-lable" type="text" v-model="memberInfo.realname" />
+            <img class="head-right" src="/static/img/member/right.png" alt="">
+        </div>
+        <div class="membership-list-two">
+            <div class="lable-one" style="width: 60px;">手机号码</div>
+            <!-- <div class="sub-lable" style="width: calc(100% - 80px);">{{memberInfo.mobile?memberInfo.mobile:'暂无'}}</div> -->
+            <input class="sub-lable" style="width: calc(100% - 80px);" type="tel" v-model="memberInfo.mobile" />
+            <img class="head-right" src="/static/img/member/right.png" alt="">
+        </div>
+        <div class="membership-list-two">
+            <div class="lable-one">学校</div>
+            <!-- <div class="sub-lable">{{memberInfo.school?memberInfo.school:'暂无'}}</div> -->
+            <select class="sub-lable" name="" id="" v-model="school" @change="changeSchool">
+                <option value="0">&nbsp;暂无</option>
+                <option v-for="item in schoolList" :value="item.id">&nbsp;{{item.schoolName}}</option>
+            </select>
+            <img class="head-right" src="/static/img/member/right.png" alt="">
+        </div>
+        <div class="membership-list-two">
+            <div class="lable-one">地址</div>
+            <!-- <div class="sub-lable" @click="toPage('./manageAddress')">{{memberInfo.country}}{{memberInfo.province}}{{memberInfo.city}}</div> -->
+            <div class="sub-lable" @click="toPage('./manageAddress')">{{address&&address!={}?address.reapProvince+address.reapCity+address.reapCounty:'暂无'}}
+                <!-- {{address.reapProvince?address.reapProvince:''}} {{address.reapCity?address.reapCity:''}} {{address.reapCounty?address.reapCounty:''}} -->
+            </div>
+            <img class="head-right" src="/static/img/member/right.png" alt="">
+        </div>
+    </div>
+    <div @click="saveChange" class="add-button">保存</div>
+    <!-- <h3>以下信息可修改</h3>
+    <div class="membership-top">
+        <div class="membership-list-two">
+            <div class="lable-one">性别</div>
+            <div class="sub-lable" v-if="memberInfo.sex === '1'">男</div>
+            <div class="sub-lable" v-else-if="memberInfo.sex === '0'">女</div>
+            <img class="head-right" src="/static/img/member/right.png" alt="">
+        </div>
+
+
+    </div> -->
+    <!-- 弹出框修改姓名 -->
+    <div v-if="isShowname" class="changename-box">
+        <div class="input-name">
+            <div class="input-title">填写姓名</div>
+            <input class="message" type="text" v-model="memberInfo.realname" placeholder="请输入您的姓名" />
+            <div @click="saveChange()" class="change-button">保存</div>
+        </div>
+    </div>
+    <!-- 底部tab栏 -->
+    <!-- <fixBottom :check=4></fixBottom> -->
+
+</div>

@@ -1,0 +1,133 @@
+<div class="item-list">
+    <!-- 公益 -->
+    <yd-accordion>
+        <yd-accordion-item :auto="false" :class="type===0?'changeItem':'nochange'" ref="accordion" title="公益参与" @click.native="changType(0)">
+            <group>
+                <radio :class="selectvalue===1?'ctrColor':''" :selected-label-style="{color: '#ef7c1b'}" title="title" :options="options" v-model="selectvalue" @click.stop.native="change($event)"></radio>
+            </group>
+        </yd-accordion-item>
+        <yd-accordion-item :auto="false" ref="accordiontwo" :class="type===1?'changeItem':'nochange'" title="公益助力" @click.native="changType(1)">
+            <group>
+                <radio :class="selectvalue===1?'ctrColor':''" :selected-label-style="{color: '#ef7c1b'}" title="title" :options="options" v-model="selectvalue" @click.stop.native="change($event)"></radio>
+            </group>
+        </yd-accordion-item>
+    </yd-accordion>
+    <div class="gongyi">
+        <!-- <div class="gongyi-item">
+
+            <div class="item-box" v-on:click.stop="changType(0)">
+                <p :class="type===0?'selectTab':''">爱参与</p>
+                <icon-svg v-if="type != 0" icon-class="icon-copy-copy" class="arrowIcon"></icon-svg>
+                <icon-svg v-if="type === 0" icon-class="icon-copy-copy-copy" class="arrowIcon"></icon-svg>
+            </div>
+            <div class="item-box" v-on:click.stop="changType(1)">
+                <p :class="type===1?'selectTab':''">爱助力</p>
+            </div>
+        </div> -->
+
+
+        <!-- content -->
+        <!-- 活动列表 -->
+        <div class="project-list" v-if="type==0">
+            <yd-infinitescroll :callback="getWelfareItem" ref="infinitescrollDemo">
+                <yd-list theme="1" slot="list">
+                    <div v-for="(item, index) in welfareActivity" :key="index" @click="toPage(item.id,'active')" class="lowheight gong-list">
+                        <img class="list-mid" :src="imgUrl+item.img" alt="">
+                        <div class="list-title" style="-webkit-box-orient: vertical;">
+                            {{item.title?item.title:'加载中'}}
+                        </div>
+                        <div class="list-introduce" style="-webkit-box-orient: vertical;">
+                            {{item.briefIntroduction?item.briefIntroduction:'加载中'}}
+                        </div>
+                        <div v-show="item.type===1" class="jindu">
+                            <div class="jindu-box">
+                                <div class="jin-list">
+                                    <template>
+                    <yd-progressbar type="line" :progress="item.progress" trail-width="2" trail-color="#ef7c1b"></yd-progressbar>
+                  </template>
+                                </div>
+                            </div>
+                        </div>
+                        <div v-show="item.type===0" style="margin-top: 15px;" class="apply-num">
+                            <div class="join-num">
+                                <div class="num">{{item.number?item.number:'0'}}/{{item.activityMember?item.activityMember:'加载中'}}</div>
+                                <div class="lable">参加人数</div>
+                            </div>
+                            <div class="join-num">
+                                <div class="num">{{item.enlistIntegral?item.enlistIntegral:'免费'}}</div>
+                                <div class="lable">积分</div>
+                            </div>
+                            <div class="join-num">
+                                <div class="num">{{item.activityTime?item.activityTime:'加载中'}}</div>
+                                <div class="lable">活动时间</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </yd-list>
+                <!-- 数据全部加载完毕显示 -->
+                <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">没有数据啦~</span>
+                <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+                <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+            </yd-infinitescroll>
+
+        </div>
+        <!-- 项目列表 -->
+        <div class="project-list" v-if="type==1">
+            <yd-infinitescroll :callback="getWelfareItem" ref="infinitescrollDemo">
+                <yd-list theme="1" slot="list">
+                    <div v-for="(item, index) in welfareActivitys" :key="index" @click="toPage(item.id,'project')" class="gong-list">
+                        <img class="list-mid" :src="imgUrl+item.img" alt="">
+                        <div class="list-title" style="-webkit-box-orient: vertical;">
+                            {{item.title?item.title:'加载中'}}
+                        </div>
+                        <div class="list-introduce" style="-webkit-box-orient: vertical;">
+                            {{item.briefIntroduction?item.briefIntroduction:'加载中'}}
+                        </div>
+                        <div v-show="item.type===1" class="jindu">
+                            <div class="jindu-box">
+                                <div class="jin-list">
+                                    <template>
+                    <yd-progressbar type="line" :progress="item.progress" trail-width="2" trail-color="#ef7c1b"></yd-progressbar>
+                  </template>
+                                </div>
+                            </div>
+                        </div>
+                        <div v-show="item.type===1" class="apply-num">
+                            <div class="join-num">
+                                <div class="num">{{item.number?item.number:'0'}}</div>
+                                <div class="lable">参加人数</div>
+                            </div>
+                            <div class="join-num">
+                                <div class="num">{{item.targetAmount?targetDeformate(item.targetAmount):'0'}}</div>
+                                <div class="lable">目标积分</div>
+                            </div>
+                            <div class="join-num">
+                                <div class="num">{{item.activityTime&&countDay(item.activityTime)>=0?countDay(item.activityTime):'已结束'}}</div>
+                                <div class="lable">剩余天数</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </yd-list>
+                <!-- 数据全部加载完毕显示 -->
+                <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">没有数据啦~</span>
+                <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+                <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+            </yd-infinitescroll>
+        </div>
+        <div v-if="pageSize<=0">
+            <div class="no_data flexd">
+                <div class="imgBox">
+                    <img src="/static/img/welfare/nolist.png" alt="加载中">
+                </div>
+                <p style="color:#737373;margin:8px 0;font-size:14px;">还没有内容</p>
+                <p style="color:#737373;margin:8px 0;font-size:14px;">敬请期待~</p>
+                <!-- <div style="color:#fff;background:#e42324;padding:8px 18px;border-radius:20px;font-size:15px;" @click="$router.push('/my/addAddress')">添加新地址</div> -->
+            </div>
+        </div>
+    </div>
+    <div style="height: 2px;"></div>
+    <!-- 底部tab栏 -->
+    <fixBottom :check=2></fixBottom>
+</div>

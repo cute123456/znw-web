@@ -1,0 +1,147 @@
+.selectcity {
+    font-family: PingFang-SC-Regular;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    /* padding: 0 15px; */
+    /* background: #f6f7f9; */
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    background-image: url('/static/img/travel/bg.png');
+    background-repeat: no-repeat;
+    background-origin: fixed;
+    background-position: 60% 80%;
+    background-size: 80% auto;
+    background-color: #62add3;
+}
+
+.select-part {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0!important;
+    /* background-color: #62add3; */
+    /* border-radius: 14px 14px 0px 0px; */
+    animation: myfirst 2s;
+    -webkit-animation: myfirst 2s;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes myfirst
+/* Safari and Chrome */
+
+{
+    0% {
+        top: 100%;
+    }
+    /* 25% {
+        top: 80%;
+    }
+    50% {
+        top: 70%;
+    }
+    75% {
+        top: 50%;
+    } */
+    100% {
+        top: 0%;
+    }
+}
+
+.select-left {
+    position: absolute;
+    width: 110px;
+    top: 0;
+    left: 0;
+    bottom: 50px;
+    padding: 15px 8px 15px 13px;
+    /* border-right: solid 1px #dcdcdc; */
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.select-right {
+    position: absolute;
+    width: calc(100% - 110px);
+    top: 0px;
+    left: 110px;
+    bottom: 0;
+    padding: 25px 5px 55px 5px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.options {
+    display: flex;
+    /* display: block; */
+    width: 88px;
+    /* height: 30px; */
+    height: 9vw;
+    line-height: 9vw;
+    font-family: PingFang-SC-Medium;
+    font-size: 15px;
+    background-color: #fff;
+    text-align: center;
+    margin: 10px 0;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+.countnum {
+    display: block;
+    width: 22px;
+    height: 22px;
+    margin: 1vw 0 0 5px;
+    background: red;
+    border-radius: 50%;
+    line-height: 22px;
+    color: #fff;
+    margin-top: calc(4.5vw - 11px);
+}
+
+.cityoptions {
+    display: inline-block;
+    width: calc(100%/3 - 10px);
+    /* height: 25px; */
+    height: 7.77vw;
+    line-height: 7.77vw;
+    font-family: PingFang-SC-Medium;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    margin: 5px 5px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    overflow: hidden;
+}
+
+.changeTabcolor {
+    background-color: #ffdb17;
+}
+
+.changeCityTabcolor {
+    color: #000;
+    background-color: #ffdb17;
+}
+
+.submit-btn {
+    line-height: 37px;
+    position: fixed;
+    /* left: 10%; */
+    right: 10%;
+    bottom: 12px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    width: 80%;
+    height: 37px;
+    background-image: linear-gradient(90deg, #ffc40f 0%, #ff9a22 100%);
+    border-radius: 18px;
+}

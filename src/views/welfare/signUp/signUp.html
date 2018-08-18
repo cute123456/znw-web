@@ -1,0 +1,89 @@
+<div :class="isShowWelcom?'hiddenpage item-detail':'item-detail'">
+    <div class="list-bg">
+        <div class="introduction information">
+            <div class="introduction_title">
+                <p></p>
+                <span>活动信息</span>
+            </div>
+            <h2 class="actvie">
+                <strong>活动名称:</strong> {{activityDetail.title}}</h2>
+            <h2 class="actvie">
+                <strong>活动时间:</strong> {{timeDeformate(activityDetail.activityTime)}}</h2>
+            <h2 class="actvie">
+                <strong>发起组织:</strong> {{activityDetail.organization}}</h2>
+            <h2 class="actvie">
+                <strong>举办地址:</strong> {{activityDetail.address}}</h2>
+            <h2 class="actvie" v-if="activityDetail.enlistIntegral === 0">
+                <strong>活动费用:</strong> 免费</h2>
+            <h2 class="actvie" v-else>
+                <strong>活动费用:</strong>{{activityDetail.enlistIntegral}}积分</h2>
+            <!-- {{activityDetail.targetAmount}} -->
+
+        </div>
+        <div class="item-intro">
+            <div class="introduction_title">
+                <p></p>
+                <span>报名信息</span>
+            </div>
+            <div class="intro-c">
+                <h2>
+                    <strong>姓名</strong>
+                    <!-- <input class="content" type="text" value="输入您的名字"> -->
+                    <input class="content" type="text" v-model="applyInfo.member_name" placeholder="输入您的名字">
+                </h2>
+                <h2>
+                    <strong>性别</strong>
+                    <div class="content">
+                        <label class="demo-label">
+                            <input class="demo-radio" v-model="applyInfo.gender" type="radio" name="demo-radio" value="1">
+                            <span class="demo-radioInput"></span>男
+                        </label>
+                        <label class="demo-label">
+                            <input class="demo-radio" v-model="applyInfo.gender" type="radio" name="demo-radio" value="0">
+                            <span class="demo-radioInput"></span>女
+                        </label>
+                    </div>
+                </h2>
+                <h2>
+                    <strong>电话</strong>
+                    <!-- <input class="content" type="text" value="输入您的联系电话"> -->
+                    <input class="content" type="tel" v-model="applyInfo.mobile" placeholder="输入您的联系电话">
+                </h2>
+                <h2>
+                    <strong>微信</strong>
+                    <input class="content" type="text" v-model="applyInfo.wechat" placeholder="输入您的微信号(非必填)">
+                </h2>
+                <h2>
+                    <strong>地址</strong>
+                    <!-- <input class="content" type="text" value="输入您的地址"> -->
+                    <input class="content" type="text" v-model="applyInfo.address" placeholder="输入您的地址">
+
+                </h2>
+
+
+            </div>
+
+        </div>
+    </div>
+    <div class="signUp-box">
+        <button class="appoint" type="button" @click="toApply()">立即报名</button>
+    </div>
+    <div v-show="isShowWelcom" id="myCanvas" class="invited">
+        <!-- <img src="/static/img/welfare/bmcg.png" />
+        <div style="-webkit-box-orient: vertical;" class="username">报名成功</div>
+        <div class="code">
+            <img :src="activityDetail.groupQrcode?imgUrl+activityDetail.groupQrcode:'/static/img/erweima_06.png'" />
+        </div>
+        <div style="-webkit-box-orient: vertical;" class="desc">识别二维码加入活动群</div>
+        <div @click="close" class="join-btn">确定</div> -->
+        <!-- <img id="active-img" class="headimg" :src="activityDetail.img?imgUrl+activityDetail.img:'/static/img/sign/activeimg.jpg'" /> -->
+        <img id="bg-img" class="headimg" src="/static/img/sign/bgcolor.jpg" />
+        <img id="love-img" class="headimg" src="/static/img/sign/lovebg.png" />
+        <img id="active-img" class="headimg" :src="activityDetail.img?imgUrl+activityDetail.img:'/static/img/sign/activeimg.jpg'" />
+        <img id="jspang-img" class="headimg" src="/static/img/sign/headimg.jpg" />
+        <img id="code-img" class="headimg" :src="codeimg?codeimg:'/static/img/sign/code.jpg'" />
+        <img id="logo-img" class="headimg" src="/static/img/sign/textlogo.png" />
+    </div>
+    <img v-show="isShowWelcom" style="z-index:99999;position: absolute;top: 0px;width:100%;height: 100%;" id="qrcode" alt="图片生成中...">
+
+</div>

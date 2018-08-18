@@ -1,0 +1,99 @@
+<div :class="isShowDay==true?'hiddenY signed-box':'signed-box'" class="signed-box">
+    <!-- <div class="sign-bg"> -->
+    <img class="signbgimg" src="/static/img/sign/sign-bg.png" />
+    <div class="signed-top">
+        <img class="sign-cartonimg" src="/static/img/sign/sign-carton.png" />
+        <!-- <div class="top-content">
+            <img src="/static/img/signed_03.png" alt="">
+            <h1>人生贵在坚持</h1>
+        </div>
+        <div class="top-content">
+            <p></p>
+        </div> -->
+        <div class="top-content">
+            <h1>已打卡 <span style="color:#f49270;">{{PunchTime}}</span> 次 </h1>
+            <h1>累计获得 <span style="color:#f49270;">{{PunchTime*10}}</span> 积分</h1>
+        </div>
+    </div>
+    <!--    -->
+    <div class="sign-time">
+        <img class="decorate" src="/static/img/signed_rili_03.png" alt="">
+        <div class="sign-month">
+            <p>{{zn_Month}}
+                <span>{{en_Month}}</span>
+            </p>
+
+        </div>
+        <div class="sign-day">
+            <h2 v-for="(item, index) in data" :key="item.id" :class="item.number===today?'bottomline':''">
+                <p>{{item.time}}</p>
+                <h3 :class="item.checked?'':'status'">{{item.number}}</h3>
+            </h2>
+        </div>
+        <div class="clock">
+            <h1 class="clock-item">连续打卡{{PunchTime}}天</h1>
+            <h2 @click="changeStatus()" v-if="status" class="card"></h2>
+            <h2 v-if="!status" class="cardChange"></h2>
+            <!-- <h3>
+                <span @click="changType(1),willShow=true">打卡规则</span>
+                <span>|</span>
+                <span @click="changType(2),willShow=true">补卡规则</span>
+            </h3> -->
+            <div class="regular">
+                <div class="title">打卡规则</div>
+                <div class="desc">1、连续签到可获得更多积分。</div>
+                <div class="desc">2、连续签到中断连续打卡天数从0开始计算。</div>
+            </div>
+        </div>
+    </div>
+    <!--  弹框    -->
+    <div v-if="willShow" :class="type===1||type===2?'selectChange':''">
+        <div v-if="type==1">
+            <div class="bomb-box" v-for="item in bomb" :key="item.id">
+                <div class="bomb-title">
+
+                    <span></span>
+
+                    <span>{{item.tit}}</span>
+                    <p @click="willShow=false"></p>
+                </div>
+                <div class="bomb-content">
+                    <p>{{item.textFir}}</p>
+                    <p>{{item.textSec}}</p>
+                    <p>{{item.textThree}}</p>
+
+                </div>
+
+            </div>
+        </div>
+        <div v-if="type==2">
+            <div class="bomb-box" v-for="item in bombs" :key="item.id">
+                <div class="bomb-title">
+
+                    <span></span>
+
+                    <span>{{item.tit}}</span>
+                    <p @click="willShow=false"></p>
+                </div>
+                <div class="bomb-content">
+                    <p>{{item.textFir}}</p>
+                    <p>{{item.textSec}}</p>
+                    <p>{{item.textThree}}</p>
+                    <p>{{item.textFour}}</p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+
+    <div v-show="isShowDay" id="myCanvas" style=" height: 100%;width: 100%;margin: 0;padding: 0;display: block;" class="invited">
+        <div @click="close" class="close">关闭</div>
+        <img id="day-img" class="headimg" :src="daily.dayImg?daily.dayImg:'/static/img/sign/dayImg.png'" />
+        <img id="jspang-img" class="headimg" :src="daily.headImage?imgUrl+daily.headImage:''" />
+        <img id="code-img" class="headimg" :src="daily.qrCode?daily.qrCode:''" />
+        <img id="bg-img" class="headimg" src="/static/img/sign/daybg.png" />
+    </div>
+    <img v-show="isShowDay" style="z-index:99999;position: absolute;top: 50px;left: 20px;" id="qrcode" alt="图片生成中...">
+</div>

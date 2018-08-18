@@ -1,0 +1,97 @@
+.appoint {
+    background: none;
+    border: none;
+    color: #fff;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    width: 88%;
+    letter-spacing: 2px;
+    background: -webkit-gradient(linear, 0 50%, 100% 50%, from(#ffc310), to(#ff9b22));
+    border-radius: 37px;
+    font-size: 16px;
+    margin: 34px auto;
+}
+
+.opinion {
+    width: 100%;
+    background: #f6f7f9;
+    overflow: hidden;
+}
+
+.opinion .opinion-box {
+    width: 92%;
+    height: 100vh;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 6px;
+    position: relative;
+    top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: normal;
+    align-items: flex-start;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .05);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.opinion-box .opinion-item {
+    align-self: flex-end;
+}
+
+.opinion-box img {
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.opinion-box h2 {
+    font-size: 16px;
+    letter-spacing: 1px;
+    padding: 12px 20px;
+    color: #acacac;
+    font-weight: normal;
+}
+
+.opinion-box span {
+    font-size: 14px;
+    color: #ff9c21;
+    font-weight: normal;
+}
+
+.opinion .about-message {
+    /* position: absolute;
+    bottom: 5%; */
+    margin: 35px auto 0 auto;
+    width: 92%;
+}
+
+.about-message p {
+    font-size: 16px;
+    color: #1f1f1f;
+    text-align: center;
+    margin: 20px 0;
+    letter-spacing: 1px;
+}
+
+.mycode {
+    width: 100%;
+    text-align: center;
+}
+
+.mycode img {
+    width: 125px;
+}
+
+.advice {
+    width: 100%;
+    height: 13px;
+    font-family: PingFang-SC-Regular;
+    font-size: 13px;
+    line-height: 13px;
+    color: #1f1f1f;
+    text-align: center;
+    margin-top: 12px;
+}

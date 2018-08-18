@@ -1,0 +1,40 @@
+.tourism {
+    font-family: PingFang-SC-Regular;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    padding: 1px 15px;
+    background: #fff;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.part {
+    width: 100%;
+    height: 135px;
+    border-radius: 7px;
+    margin: 15px 0;
+    position: relative;
+}
+
+.part img {
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+}
+
+.desc {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    font-family: PingFang-SC-Regular;
+    font-size: 15px;
+    line-height: 30px;
+    color: #fff;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    text-indent: 14px;
+}

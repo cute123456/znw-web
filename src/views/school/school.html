@@ -1,0 +1,29 @@
+<div class="school">
+
+    <div class="table">
+        <div class="title">
+            <span style="width:20%;">排名</span>
+            <span>学校/人数</span>
+            <span>积分</span>
+        </div>
+        <yd-infinitescroll :callback="getList" ref="infinitescrollDemo">
+            <yd-list theme="1" slot="list">
+                <div class="schoolpart" v-for="(item,index) in schoollist" :key="index">
+                    <span style="width:20%;">
+                <div class="num-box">{{index+1}}</div>
+            </span>
+                    <span>
+                <div class="schoolname">{{item.school}}</div>
+                <div class="schoolnum">{{item.num}}人</div>
+            </span>
+                    <span class="total-num">{{item.donationIntegral}}</span>
+                </div>
+            </yd-list>
+            <!-- 数据全部加载完毕显示 -->
+            <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">更多排名敬请期待~</span>
+            <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+            <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+        </yd-infinitescroll>
+    </div>
+
+</div>

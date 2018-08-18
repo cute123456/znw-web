@@ -1,0 +1,77 @@
+.release {
+    font-family: PingFang-SC-Regular;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    /* padding: 1px 15px; */
+    background: #fff;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 5px;
+}
+
+.suggest {
+    width: 100%;
+    height: 200px;
+    border: none;
+    padding: 16px 19px;
+}
+
+.img-part {
+    width: calc(100% - 30px);
+    margin: 10px auto;
+    border-bottom: solid 1px #cfd8dc;
+    padding: 15px 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.addimg {
+    width: 90px;
+    height: 90px;
+    background-color: #ececec;
+    position: relative;
+    margin-right: 5px;
+}
+
+.add-icon {
+    width: 27px;
+    height: 27px;
+    margin: 31.5px;
+}
+
+.closeIcon {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 20px;
+}
+
+.save-btn {
+    width: 82%;
+    height: 40px;
+    background-image: linear-gradient(90deg, #ffc40f 0%, #ff9a22 100%);
+    border-radius: 20px;
+    font-family: PingFang-SC-Regular;
+    font-size: 14px;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    left: 9%;
+}
+
+.hiddenadd {
+    display: none;
+}
+
+.imgItem {
+    width: 100%;
+    height: 100%;
+}

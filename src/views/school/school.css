@@ -1,0 +1,135 @@
+.school {
+    font-family: PingFang-SC-Regular;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    padding: 0 15px;
+    background: #f09d35;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    background-image: url('/static/img/school/school-bg.jpg');
+    background-repeat: no-repeat;
+    background-origin: fixed;
+    background-position: 0% 0%;
+    background-size: 100%;
+}
+
+.table {
+    /* width: calc(100% - 30px); */
+    width: 92%;
+    position: absolute;
+    top: calc(42vw + 50px);
+    left: 4%;
+    right: 4%;
+    bottom: 0;
+    overflow: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    background: #fff;
+    padding: 0 20px;
+}
+
+.title {
+    width: 100%;
+    height: 18px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.title span {
+    display: inline-block;
+    width: 35%;
+    height: 100%;
+    background-color: #f9ba00;
+    color: #fff;
+    text-align: center;
+    line-height: 18px;
+    font-size: 13px;
+}
+
+.schoolpart {
+    width: 100%;
+    height: auto;
+    min-height: 55px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px #f5d168;
+    align-items: center;
+}
+
+.schoolpart span {
+    display: inline-block;
+    width: 35%;
+    height: 100%;
+    line-height: 55px;
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.num-box {
+    width: 30px;
+    height: 37px;
+    /* background-color: #ef7c1a; */
+    background-color: #fff;
+    line-height: 37px;
+    text-align: center;
+    margin: 9px auto 0 auto;
+    color: #ef7c1a;
+}
+
+.schoolname {
+    width: 100%;
+    /* height: 15px; */
+    font-size: 15px;
+    line-height: 15px;
+    color: #1f1f1f;
+    margin: 8px 0;
+    padding: 6px;
+}
+
+.schoolnum {
+    width: 100%;
+    height: 13px;
+    font-size: 13px;
+    line-height: 13px;
+    color: #6a6a6a;
+    text-indent: 6px;
+    margin-bottom: 3px;
+}
+
+.total-num {
+    font-family: HYk1gj;
+    font-size: 24px!important;
+    color: #372823;
+}
+
+.schoolpart:nth-child(1) .num-box {
+    background-color: #ef7c1a!important;
+    color: #fff!important;
+}
+
+.schoolpart:nth-child(2) .num-box {
+    background-color: #f1bc1f!important;
+    color: #fff!important;
+}
+
+.schoolpart:nth-child(3) .num-box {
+    background-color: #445e83!important;
+    color: #fff!important;
+}
+
+.schoolpart:nth-child(1) .total-num {
+    color: #ef7c1a!important;
+}
+
+.schoolpart:nth-child(2) .total-num {
+    color: #f1bc1f!important;
+}
+
+.schoolpart:nth-child(3) .total-num {
+    color: #445e83!important;
+}

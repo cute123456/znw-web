@@ -1,0 +1,48 @@
+<div :class="{hiddenscroll:isShowSuccess===true}" class="monthly">
+    <div class="title-part">
+        <div class="count">
+            <div class="title">每月冲关</div>
+        </div>
+
+        <div class="mounth">
+            <img class="aword-icon" src="/static/img/learn/daily/clock.png" />
+            <div>
+                <div class="mounthly">剩余时间</div>
+                <div class="mounthly">{{minute}}分{{second}}秒</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="question">1、人类全身上下，最强韧有力的肌肉是什么？</div>
+    <div :class="{changecolor:answer===1}" class="section" @click="changeAnswer(1)">大腿</div>
+    <div :class="{changecolor:answer===2}" class="section" @click="changeAnswer(2)">手臂</div>
+    <div :class="{changecolor:answer===3}" class="section" @click="changeAnswer(3)">舌头</div>
+    <div :class="{changecolor:answer===4}" class="section" @click="changeAnswer(4)">肚子</div>
+
+    <div style="margin-top: 50px;">
+        <div class="save-btn next">上一题</div>
+        <div class="save-btn next">下一题</div>
+        <div class="save-btn" @click="save">提交</div>
+    </div>
+
+    <div class="status">第25题</div>
+    <div class="tip">共30题</div>
+    <div v-show="isShowSuccess" class="success-bg">
+        <img class="success" src="/static/img/learn/daily/success.png" />
+        <div class="box-detail">
+            <div class="num">30</div>
+            <div class="about">道题</div>
+        </div>
+        <div class="box-detail blue">
+            <div class="num">18</div>
+            <div class="about">答对</div>
+        </div>
+        <div class="box-detail yellow">
+            <div class="num">12</div>
+            <div class="about">答错</div>
+        </div>
+        <div class="result">本次冲关获得了<span>800</span>积分</div>
+        <div class="tips">小提示：每月只能成功冲关一次哦</div>
+        <div class="backhome">返回首页</div>
+    </div>
+</div>

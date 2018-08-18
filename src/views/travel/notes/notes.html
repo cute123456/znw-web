@@ -1,0 +1,97 @@
+<div :class="{hiddenpage:isLess===true}" class="notes">
+    <img class="bg-img" src="/static/img/travel/notes/yjbg.png" />
+    <div class="head-bg" @click="toMynotes">
+        <img class="head-img" :src="memberInfo.headimgurl?imgUrl+memberInfo.headimgurl:'/static/img/sign/headimg.jpg'" />
+    </div>
+    <div class="nickname" style="-webkit-box-orient: vertical;">{{memberInfo.nickname?memberInfo.nickname:''}}</div>
+    <div class="release" @click="toRelease">
+        <img class="cam-img" src="/static/img/travel/notes/addicon.png" />
+        <div class="torelease">发布游记</div>
+    </div>
+
+    <div class="noteslist">
+        <yd-infinitescroll :callback="getNotes" ref="infinitescrollDemo">
+            <yd-list theme="1" slot="list">
+                <div class="note" v-for="(item, index) in notes" :key="index">
+                    <div class="userinfo">
+                        <img class="thmub" :src="item.user.headimgurl?imgUrl+item.user.headimgurl:'/static/img/member/mum_tx.png'" />
+                        <div class="info">
+                            <div class="name">{{item.user.nickname?item.user.nickname:''}}</div>
+                            <div class="time">{{item.createdAt}}</div>
+                        </div>
+                    </div>
+                    <div class="content">{{item.noteContent?item.noteContent:''}}</div>
+                    <div v-if="getLength(item.noteImages)===1" class="content-img">
+                        <img @click="showImg(item.noteImages[0])" class="note-img-one" :src="item.noteImages[0]?imgUrl+item.noteImages[0]:'/static/img/travel/notes/contentimg.jpg'" />
+                        <!-- <img class="note-img-two" src="/static/img/travel/notes/contentimg.jpg" /> -->
+                    </div>
+                    <div v-if="getLength(item.noteImages)===2" class="content-img">
+                        <img v-for="(obj, index) in item.noteImages" :key="index" @click="showImg(obj)" class="note-img-two" :src="obj?imgUrl+obj:'/static/img/travel/notes/contentimg.jpg'" />
+                    </div>
+                    <div v-if="getLength(item.noteImages)===3" class="changeheight content-img">
+                        <img v-for="(obj, index) in item.noteImages" :key="index" @click="showImg(obj)" class="note-img-three" :src="obj?imgUrl+obj:'/static/img/travel/notes/contentimg.jpg'" />
+                    </div>
+                    <img @click="showInput(item.id)" class="commit-btn" src="/static/img/travel/notes/commit-btn.png" />
+
+                    <!-- --------------评论部分------------------ -->
+                    <div class="comment">
+                        <div v-for="(com, index) in item.comment" :key="index" class="comment-part">
+                            <div class="comment-user">
+                                <img class="user-img" :src="com.headimgurl?imgUrl+com.headimgurl:'/static/img/sign/headimg.jpg'" />
+                                <div class="user-name">{{com.senderName?com.senderName:'加载中'}}</div>
+                            </div>
+                            <div class="user-coment">{{com.noteComment?com.noteComment:'加载中'}}</div>
+                        </div>
+                        <!-- <div class="comment-part">
+                            <div class="comment-user">
+                                <img class="user-img" src="/static/img/sign/headimg.jpg" />
+                                <div class="user-name">张小鹿</div>
+                            </div>
+                            <div class="user-coment">帮我带个企鹅来</div>
+                        </div> -->
+                    </div>
+                </div>
+            </yd-list>
+            <!-- 数据全部加载完毕显示 -->
+            <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">没有更多游记啦~</span>
+            <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+            <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+        </yd-infinitescroll>
+        <!-- 删除 -->
+        <!-- <div class="note">
+            <div class="userinfo">
+                <img class="thmub" src="/static/img/member/mum_tx.png" />
+                <div class="info">
+                    <div class="name">小猪奇佩</div>
+                    <div class="time">4小时前</div>
+                </div>
+            </div>
+            <div class="content">今天天气阳光明媚，真适合躺在沙滩上睡一个大大的懒觉，Zzzzzzz..</div>
+            <div class="changeheight content-img">
+                <img class="note-img-three" src="/static/img/travel/notes/contentimg.jpg" />
+                <img class="note-img-three" src="/static/img/travel/notes/contentimg.jpg" />
+                <img class="note-img-three" src="/static/img/travel/notes/contentimg.jpg" />
+            </div>
+            <img class="commit-btn" src="/static/img/travel/notes/commit-btn.png" />
+            <div class="comment">
+                <div class="comment-part">
+                    <div class="comment-user">
+                        <img class="user-img" src="/static/img/sign/headimg.jpg" />
+                        <div class="user-name">木吉他</div>
+                    </div>
+                    <div class="user-coment">南极一定非常非常冷吧，注意保暖哦，别让自己感冒了哦。</div>
+                </div>
+
+            </div>
+        </div> -->
+        <!-- 删除 -->
+    </div>
+    <div v-show="isShowInput" class="tocommit">
+        <input class="commit-input" type="text" placeholder="输入评论" v-model="commit" />
+        <div class="send-btn" @click="sendMessage">发送</div>
+    </div>
+    <div v-show="isShowImg" :class="{less:isLess===true}" id="img-div" class="big-img" @click="closeImg">
+        <!-- <img src="imgUrl+Img" /> -->
+        <img @click="closeImg" id="largeImg" :src="Img" />
+    </div>
+</div>

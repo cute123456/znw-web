@@ -1,0 +1,62 @@
+<div :class="{hiddenpage:isLess===true}" class="mynotes">
+    <img class="bg-img" src="/static/img/travel/notes/yjbg.png" />
+    <div class="head-bg">
+        <img class="head-img" :src="memberInfo.headimgurl?imgUrl+memberInfo.headimgurl:'/static/img/sign/headimg.jpg'" />
+    </div>
+    <div class="nickname" style="-webkit-box-orient: vertical;">{{memberInfo.nickname?memberInfo.nickname:''}}</div>
+    <div class="release" @click="toRelease">
+        <img class="cam-img" src="/static/img/travel/notes/addicon.png" />
+        <div class="torelease">发布游记</div>
+    </div>
+    <yd-infinitescroll :callback="getNotes" ref="infinitescrollDemo">
+        <yd-list theme="1" slot="list">
+            <div class="noteslist" v-for="(item, index) in notes" :key="index">
+                <div v-if="item.date==='今天'" class="release-time">今天</div>
+                <div v-else style="position: absolute;">
+                    <div class="release-time">{{getMonthDay(item.date,2)}}</div>
+                    <div class="mounth">{{getMonthDay(item.date,1)}}月</div>
+                </div>
+                <div class="note" v-for="(obj, index) in item.notes" :key="index">
+                    <div class="content">{{obj.noteContent?obj.noteContent:''}}</div>
+                    <!-- <div class="content-img">
+                        <img class="note-img-two" src="/static/img/travel/notes/contentimg.jpg" />
+                        <img class="note-img-two" src="/static/img/travel/notes/contentimg.jpg" />
+                    </div> -->
+                    <div v-if="getLength(obj.noteImages)===1" class="content-img">
+                        <img @click="showImg(obj.noteImages[0])" class="note-img-one" :src="obj.noteImages[0]?imgUrl+obj.noteImages[0]:'/static/img/travel/notes/contentimg.jpg'" />
+                        <!-- <img class="note-img-two" src="/static/img/travel/notes/contentimg.jpg" /> -->
+                    </div>
+                    <div v-if="getLength(obj.noteImages)===2" class="content-img">
+                        <img v-for="(object, index) in obj.noteImages" :key="index" @click="showImg(object)" class="note-img-two" :src="object?imgUrl+object:'/static/img/travel/notes/contentimg.jpg'" />
+                    </div>
+                    <div v-if="getLength(obj.noteImages)===3" class="changeheight content-img">
+                        <img v-for="(object, index) in obj.noteImages" :key="index" @click="showImg(object)" class="note-img-three" :src="object?imgUrl+object:'/static/img/travel/notes/contentimg.jpg'" />
+                    </div>
+                    <div class="commit-btn" @click="toDelete(obj,item.notes)">删除</div>
+                </div>
+            </div>
+        </yd-list>
+        <!-- 数据全部加载完毕显示 -->
+        <span slot="doneTip" v-bind:class="[pageSize<=0 ? 'none' : '']">没有更多游记啦~</span>
+        <!-- 加载中提示，不指定，将显示默认加载中图标 -->
+        <img slot="loadingTip" src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg" />
+    </yd-infinitescroll>
+    <!-- <div class="noteslist">
+        <div>
+            <div class="release-time">26</div>
+            <div class="mounth">9月</div>
+        </div>
+        <div class="note">
+            <div class="content">冻死了！早上零下20多度。今天南极的温度实在太低了，一会前往下一个考察点。</div>
+            <div class="content-img">
+                <img class="note-img-two" src="/static/img/travel/notes/contentimg.jpg" />
+                <img class="note-img-two" src="/static/img/travel/notes/contentimg.jpg" />
+            </div>
+            <div class="commit-btn">删除</div>
+        </div>
+    </div> -->
+    <div v-show="isShowImg" :class="{less:isLess===true}" id="img-div" class="big-img" @click="closeImg">
+        <!-- <img src="imgUrl+Img" /> -->
+        <img @click="closeImg" id="largeImg" :src="Img" />
+    </div>
+</div>

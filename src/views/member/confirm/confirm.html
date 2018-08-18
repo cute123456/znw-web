@@ -1,0 +1,33 @@
+<div class="confirm">
+    <div class="address">
+        <img class="address-logo" src="/static/img/member/address-logo.png" />
+        <div class="info" @click="toPage()">
+            <div class="personalinfo">
+                <div class="name">{{name}}</div>
+                <div class="mobile">{{mobile}}</div>
+            </div>
+            <div class="address-detail">{{serve_address}}{{detail_address}}</div>
+        </div>
+        <img class="head-right" src="/static/img/member/address-right.png" alt="">
+    </div>
+
+    <div class="good">
+        <img class="good-img" :src="good.img?imgUrl+good.img:''" />
+        <div>
+            <div class="good-name">{{good.name?good.name:'加载中'}}
+            </div>
+            <div class="good-price">{{good.integral?good.integral:'加载中'}}<span style="color: #ef7c1b;font-size: 13px;">积分</span></div>
+        </div>
+    </div>
+
+    <div class="leaveinfo">
+        <div class="lable-leave">买家备注：</div>
+        <input class="message" type="text" v-model="message" />
+        <img style="margin-top: 10px;" class="head-right" src="/static/img/member/right.png" alt="">
+    </div>
+
+    <div class="fix-box">
+        <div class="price">应付：{{good.integral?good.integral:'0'}}积分</div>
+        <div @click="confirmOrder" class="sure-button">提交订单</div>
+    </div>
+</div>

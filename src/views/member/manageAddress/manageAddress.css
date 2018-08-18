@@ -1,0 +1,171 @@
+.manage {
+    /* background: #fff; */
+    font-family: PingFang-SC-Regular;
+}
+
+.manage .conent {
+    font-size: 13px;
+    color: #232323;
+    position: absolute;
+    top: 0px;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background: #f6f7f9;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.manage .conent::-webkit-scrollbar {
+    display: none
+}
+
+.manage .bg {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 8px 8px 16px;
+    margin-bottom: 10px;
+}
+
+.manage .personmsg {
+    justify-content: space-between;
+    /* height: 32px; */
+    padding: 0 8px;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.perLeft P {
+    margin-left: 5px;
+}
+
+.manage .flex-center {
+    align-items: center;
+}
+
+.manage .color-phone {
+    color: #727272;
+}
+
+.manage .color-address {
+    color: #666666;
+    /* height: 40px; */
+    line-height: 30px;
+    padding: 0 8px 10px;
+    border-bottom: .5px solid #d5d5d5;
+    line-height: 20px;
+}
+
+.manage .color-normal {
+    color: #6f6f6f;
+}
+
+.manage .color-checked {
+    color: #af0203;
+}
+
+.manage .fw {
+    color: #232323;
+}
+
+.manage .personchange {
+    color: #717171;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 4px 0 7px;
+}
+
+.manage .btn {
+    position: fixed;
+    bottom: 11px;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    height: 37px;
+    background-image: linear-gradient(90deg, rgba(255, 196, 15, 0.99) 0%, rgba(255, 156, 33, 0.99) 100%), linear-gradient( rgba(49, 157, 255, 0.99), rgba(49, 157, 255, 0.99));
+    background-blend-mode: normal, normal;
+    border-radius: 19px;
+    opacity: 0.99;
+    font-size: 14px;
+    line-height: 37px;
+    color: #fff;
+}
+
+.manage .m5 {
+    margin: 5px 0px;
+}
+
+.manage .iflex {
+    display: inline-flex;
+}
+
+
+/* 编辑、删除图标 */
+
+.manage .addIcon {
+    width: 28px;
+    height: 28px;
+}
+
+.manage .change,
+.address div {
+    display: flex;
+    align-items: center;
+}
+
+.manage .change {
+    margin: 0 6px;
+    font-size: 11px;
+    color: #949494
+}
+
+
+/* 无数据 */
+
+.no_data {
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.imgBox {
+    width: 140px;
+    height: 140px;
+    overflow: hidden;
+}
+
+.imgBox img {
+    width: 100%;
+}
+
+.none {
+    display: none;
+}
+
+.isdefault {
+    width: 75px;
+    height: 22px;
+    background-image: linear-gradient(90deg, rgba(255, 193, 16, 0.99) 0%, rgba(255, 156, 33, 0.99) 100%), linear-gradient( rgba(255, 255, 255, 0.99), rgba(255, 255, 255, 0.99));
+    background-blend-mode: normal, normal;
+    border-radius: 11px;
+    opacity: 0.99;
+    font-size: 13px;
+    line-height: 22px;
+    color: #fff;
+    text-align: center;
+}
+
+.nodefault {
+    width: 75px;
+    height: 22px;
+    background-color: rgba(255, 255, 255, 0.99);
+    border-radius: 11px;
+    border: solid 1px rgba(255, 174, 73, 0.99);
+    opacity: 0.99;
+    font-size: 13px;
+    line-height: 22px;
+    color: #ff9d24;
+    text-align: center;
+}

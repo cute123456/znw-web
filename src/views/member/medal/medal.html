@@ -1,0 +1,36 @@
+<div class="medal">
+
+    <div class="list-bg">
+        <div v-for = "(medals,index) in medalLists" :key="index">
+            <div class="introduction_title" style="margin-top: 15px;">
+                <!-- <p></p> -->
+                <span>{{medals.type.name}}</span>
+                <span style="font-size: 12px;line-height: 21px;margin-left: 2px;color: #cecece;">（已获得{{medals.mount}}枚）</span>
+            </div>
+            <div class="introduction">
+
+                <div class="one-medal"  v-for = "(medal,i) in medals.medal" :key="i">
+                    <img @click="showMedal(medal.iconActive, medal.name, medal.conditons, medal.isGain)" v-if = "medal.isGain" class="label-img" :src="imgUrl+medal.iconActive" alt="">
+                    <img @click="showMedal(medal.icon, medal.name, medal.conditons, medal.isGain)" v-else class="label-img" :src="imgUrl+medal.icon" alt="">                    
+                    <!-- <div class="subscript">+2</div> -->
+                    <div class="name">{{medal.name}}</div>
+                    <div class="desc">({{medal.conditons}})</div>
+                </div>
+            </div>
+        </div>
+        <!--  二维码弹框    -->
+        <div v-if="willShow==true" class="selectChange">
+            <p @click="showCode(false)">X</p>
+            <img class="label-img" :src=imgUrl+medalIcon alt="">
+            <span class="label-name">{{medalName}}勋章</span>
+            <div class="tip-part">
+                <div class="line"></div>
+                <div class="tip-title" v-if = "medalIsGain">领取成功！</div>
+                <div class="tip-title" v-else>未领取</div>                
+                <div class="line"></div>
+            </div>
+            <div class="content">{{medalConditions}}</div>
+            <!-- <div class="share">分享领积分</div> -->
+        </div>
+    </div>
+</div>
